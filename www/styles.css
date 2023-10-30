@@ -1,0 +1,14 @@
+.title-class {
+  background-color:#0065bd; 
+  color:#ffffff; 
+  padding: 10px
+}
+
+.row {
+  padding-left: 10px
+}
+
+body {
+  font-family: Arial;
+  font-size: 18px;
+}

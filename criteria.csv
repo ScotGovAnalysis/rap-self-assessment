@@ -1,0 +1,4 @@
+id,level,criteria,help_text
+Q1,1,Writing R code,Q1 help
+Q2,1,Writing functions,Q2 help
+Q3,2,Using Git,Q3 help
