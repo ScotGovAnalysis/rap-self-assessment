@@ -1,0 +1,14 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+### Level `r x`
+
+```{r, echo = FALSE}
+params$input_data |>
+  filter(level == x) |>
+  select(criteria, help_text, status = status_label) |>
+  gt()
+```

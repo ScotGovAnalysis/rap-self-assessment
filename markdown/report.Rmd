@@ -1,0 +1,92 @@
+---
+title: "RAP Self Assessment Report"
+output: 
+  html_document:
+    css: "md_styles.css"
+params:
+  input_data: NA
+  all_options: NA
+  metadata: NA
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r echo = FALSE, include = FALSE}
+library(dplyr)
+library(tidyr)
+library(gt)
+library(janitor)
+```
+
+**Publication title**: `r params$metadata$pub_name`
+
+**Team leader**: `r params$metadata$team_lead`
+
+**Team members**: `r params$metadata$team_members`
+
+**Report produced**: `r format(lubridate::today(), "%d %b %Y")`
+
+
+## Level of RAP
+
+```{r, echo = FALSE, include = FALSE}
+level_summary <-
+  params$input_data |>
+  select(level, status) |> 
+  mutate(n = 1) |>
+  complete(level, status = params$all_options, fill = list(n = 0)) |>
+  pivot_wider(names_from = status, names_expand = TRUE,
+              values_from = n, values_fn = sum, values_fill = 0) |>
+  rowwise() |>
+  mutate(n_criteria = sum(c_across(!level))) |>
+  ungroup() |>
+  mutate(
+    all_criteria = yes == n_criteria & n_criteria > 0,
+    level_met = accumulate(all_criteria, all),
+    perc_met = yes / n_criteria
+  )
+
+max_level <- ifelse(
+  any(level_summary$level_met),
+  level_summary |> filter(level_met) |> pull(level) |> max(),
+  NA
+)
+
+level_met_text <- ifelse(
+  is.na(max_level),
+  "is working towards level 1",
+  paste("has met level", max_level)
+)
+```
+
+This publication `r level_met_text` of RAP.
+
+```{r, echo = FALSE}
+level_summary |>
+  select(level, all_of(params$all_options), perc_met) |>
+  gt() |>
+  tab_spanner(
+    label = "Number of criteria",
+    columns = any_of(names(params$all_options))
+  ) |>
+  cols_label(level = "Level of RAP",
+             perc_met = "Percentage of criteria met") |>
+  fmt_percent(perc_met, decimals = 0)
+```
+
+
+## Assessment by Level 
+
+```{r, echo=FALSE, results='asis'}
+out <- 
+  map(
+    unique(params$input_data$level),
+    function(x) {
+      knitr::knit_child('level-progress.Rmd', 
+                        envir = environment(), 
+                        quiet = TRUE)
+    }
+  )
+
+cat(unlist(out), sep = "\n")
+```

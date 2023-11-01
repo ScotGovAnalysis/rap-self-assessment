@@ -1,4 +1,5 @@
 id,level,criteria,help_text
-Q1,1,Writing R code,Q1 help
-Q2,1,Writing functions,Q2 help
-Q3,2,Using Git,Q3 help
+Q1,1,Data is produced by code in an open-source language,Q1 help
+Q2,1,Code has been peer reviewed,Q2 help
+Q3,1,Code is published in the open,
+Q4,2,Code is version controlled,Q3 help
