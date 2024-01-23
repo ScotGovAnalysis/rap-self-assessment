@@ -8,6 +8,13 @@
  padding-left: 10px;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .btn {
   font-size: 18px !important;
   width: 100% !important;

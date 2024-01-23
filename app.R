@@ -50,7 +50,8 @@ ui <- fluidPage(
             br(),
             br(),
             download_csv_ui("csv")
-        ),
+        ) |>
+            tagAppendAttributes(class = "sticky"),
         
         mainPanel(
             
