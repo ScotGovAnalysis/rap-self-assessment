@@ -4,6 +4,15 @@
   padding: 10px
 }
 
+.p-intro {
+ padding-left: 10px;
+}
+
+.btn {
+  font-size: 18px !important;
+  width: 100% !important;
+}
+
 * {
   font-family: Arial;
 }

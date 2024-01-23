@@ -1,5 +1,5 @@
 
-form_ui <- function(id, criteria_data, options) {
+form_ui <- function(id, criteria_data, levels, options) {
   
   ns <- NS(id)
   
@@ -34,7 +34,7 @@ form_ui <- function(id, criteria_data, options) {
       unique(criteria_data$level),
       function(x) {
         fluidRow(
-          h2(paste("Level", x)),
+          h2(paste("Level", x, "-", names(levels[levels == x]), "RAP")),
           br(),
           pmap(criteria_data |> 
                  filter(level == x) |> 
@@ -42,6 +42,8 @@ form_ui <- function(id, criteria_data, options) {
                  select(id, criteria), 
                form_row
           ),
+          br(),
+          hr(style = "border-color: #0065bd"),
           br()
         )
       }

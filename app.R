@@ -8,12 +8,18 @@ library(tibble)
 
 walk(list.files("modules", ".R$", full.names = TRUE), source)
 
-criteria <- read_csv(here("criteria.csv"), show_col_types = FALSE)
+criteria <- read_csv(here("criteria.csv"), show_col_types = FALSE) %>%
+    mutate(id = paste0("Q", id))
 
 options <- c(`Complete` = "yes", 
              `In progress` = "progress", 
              `Not started` = "no",
              `Not assessed` = "not_assessed")
+
+levels <- c(`Aspiring` = 0,
+            `Fundamental` = 1,
+            `Intermediate` = 2,
+            `Advanced` = 3)
 
 ui <- fluidPage(
     
@@ -29,17 +35,33 @@ ui <- fluidPage(
     
     br(),
     
-    metadata_ui("metadata"),
+    p("Introduction and scene setting here...") |>
+        tagAppendAttributes(class = "p-intro"),
+
+    hr(style = "border-color: #0065bd"),
+    br(),
     
-    form_ui("form", criteria, options),
-    
-    fluidRow(
-        column(width = 2, download_report_ui("report")),
-        column(width = 2, download_csv_ui("csv"))
+    sidebarLayout(
+        
+        sidebarPanel(
+            metadata_ui("metadata"),
+            br(),
+            download_report_ui("report"),
+            br(),
+            br(),
+            download_csv_ui("csv")
+        ),
+        
+        mainPanel(
+            
+            form_ui("form", criteria, levels, options),
+            
+        )
+        
     )
     
 )
-
+        
 server <- function(input, output) {
 
     assessment <- callModule(form_server, "form", criteria$id)
@@ -60,7 +82,7 @@ server <- function(input, output) {
     
     callModule(download_csv_server, "csv", data_output)
     
-    callModule(download_report_server, "report", data_output, options, metadata)
+    callModule(download_report_server, "report", data_output, levels, options, metadata)
     
 }
 

@@ -3,11 +3,17 @@ metadata_ui <- function(id) {
   
   ns <- NS(id)
   
-  fluidRow(
-    column(width = 2, textInput(ns("pub_name"), "Publication Name")),
-    column(width = 2, textInput(ns("team_lead"), "Team leader")),
-    column(width = 2, textInput(ns("team_members"), "Team members"))
-  )  
+  # fluidRow(
+  #   column(width = 2, textInput(ns("pub_name"), "Publication Name")),
+  #   column(width = 2, textInput(ns("team_lead"), "Team leader")),
+  #   column(width = 2, textInput(ns("team_members"), "Team members"))
+  # )  
+  
+  tagList(
+    textInput(ns("pub_name"), "Publication Name"),
+    textInput(ns("team_lead"), "Team leader"),
+    textInput(ns("team_members"), "Team members")
+  )
   
 }
 

@@ -6,6 +6,7 @@ output:
 params:
   input_data: NA
   all_options: NA
+  all_levels: NA
   metadata: NA
 editor_options: 
   chunk_output_type: console
@@ -16,6 +17,10 @@ library(dplyr)
 library(tidyr)
 library(gt)
 library(janitor)
+library(ggplot2)
+library(sgplot)
+
+source(here::here("functions", "level_label.R"))
 ```
 
 **Publication title**: `r params$metadata$pub_name`
@@ -24,7 +29,7 @@ library(janitor)
 
 **Team members**: `r params$metadata$team_members`
 
-**Report produced**: `r format(lubridate::today(), "%d %b %Y")`
+**Report produced**: `r format(lubridate::today(), "%d %B %Y")`
 
 
 ## Level of RAP
@@ -43,7 +48,8 @@ level_summary <-
   mutate(
     all_criteria = yes == n_criteria & n_criteria > 0,
     level_met = accumulate(all_criteria, all),
-    perc_met = yes / n_criteria
+    perc_met = yes / n_criteria,
+    perc_in_progress = progress / n_criteria
   )
 
 max_level <- ifelse(
@@ -54,12 +60,43 @@ max_level <- ifelse(
 
 level_met_text <- ifelse(
   is.na(max_level),
-  "is working towards level 1",
-  paste("has met level", max_level)
+  paste("is working towards", 
+        level_label(min(params$all_levels), params$all_levels)),
+  paste("has met level", 
+        level_label(max_level, params$all_levels))
 )
 ```
 
-This publication `r level_met_text` of RAP.
+This publication `r level_met_text`.
+
+```{r, echo = FALSE, dev = "svg", fig.align = "center", fig.width = mm_to_inch(250), fig.height = mm_to_inch(150)}
+chart_data <- 
+  level_summary |>
+  select(level, perc_met, perc_in_progress, all_criteria, level_met) %>%
+  mutate(level = factor(level,
+                        rev(params$all_levels),
+                        label = rev(level_label(level, params$all_levels))))
+
+chart_data %>%
+  pivot_longer(cols = starts_with("perc"), 
+               names_to = "status", 
+               values_to = "perc") %>%
+  mutate(status = factor(status, levels = c("perc_in_progress", "perc_met"))) %>%
+  ggplot(aes(y = level)) +
+  geom_col(data = chart_data, aes(x = 1),
+           fill = "white",  
+           colour = sg_colour_values["dark-blue"]) +
+  geom_col(aes(x = perc, fill = status)) +
+  scale_fill_discrete_sg(
+    reverse = TRUE,
+    guide = guide_legend(reverse = TRUE),
+    labels = c("perc_met" = "Criteria Met", "perc_in_progress" = "Criteria in progress")) +
+  scale_x_continuous(labels = scales::percent) +
+  theme_sg(base_size = 16, legend = "bottom") +
+  labs(x = "Percentage of criteria", y = NULL, fill = NULL)
+```
+
+<br>
 
 ```{r, echo = FALSE}
 level_summary |>

@@ -11,6 +11,7 @@ download_report_server <- function(input,
                                    output, 
                                    session, 
                                    input_data, 
+                                   levels,
                                    options,
                                    metadata) {
   
@@ -32,6 +33,7 @@ download_report_server <- function(input,
       params <- list(
         input_data = input_data(), 
         all_options = options,
+        all_levels = levels,
         metadata = metadata()
       )
       
