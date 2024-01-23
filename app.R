@@ -35,8 +35,7 @@ ui <- fluidPage(
     
     br(),
     
-    p("Introduction and scene setting here...") |>
-        tagAppendAttributes(class = "p-intro"),
+    intro_text_ui(),
 
     hr(style = "border-color: #0065bd"),
     br(),
