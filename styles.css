@@ -1,0 +1,36 @@
+#title-block-header {
+  background-color: #0065bd; 
+  color: #ffffff;
+  padding: 1rem;
+}
+
+.btn {
+  font-size: 18px !important;
+  width: 100% !important;
+}
+
+* {
+  font-family: Arial;
+}
+
+body, input {
+   font-size: 18px !important;
+}
+
+.form-group {
+  width: auto !important;
+}
+
+.form-sidebar{
+  padding-bottom: 1.5rem;
+}
+
+body {
+  margin: 1rem !important;
+}
+
+.panel-sidebar {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
