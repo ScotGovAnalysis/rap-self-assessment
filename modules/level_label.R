@@ -1,3 +1,5 @@
+# This is a general function rather than a Shiny module
+
 level_label <- function(level, level_options, case = c("upper", "lower")) {
   
   case <- match.arg(case)
