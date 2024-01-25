@@ -20,7 +20,7 @@ library(janitor)
 library(ggplot2)
 library(sgplot)
 
-source(here::here("functions", "level_label.R"))
+source(here::here("modules", "level_label.R"))
 ```
 
 **Publication title**: `r params$metadata$pub_name`
@@ -86,7 +86,8 @@ chart_data %>%
   geom_col(data = chart_data, aes(x = 1),
            fill = "white",  
            colour = sg_colour_values["dark-blue"]) +
-  geom_col(aes(x = perc, fill = status)) +
+  geom_col(aes(x = perc, fill = status),
+           colour = sg_colour_values["dark-blue"]) +
   scale_fill_discrete_sg(
     reverse = TRUE,
     guide = guide_legend(reverse = TRUE),
