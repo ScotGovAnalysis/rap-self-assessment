@@ -20,12 +20,15 @@ form_ui <- function(id, criteria_data, levels, options) {
     deframe()
   
   # Function to create form row
-  form_row <- function(id, criteria) {
-    selectInput(
-      inputId = id,
-      label = criteria,
-      choices = options,
-      selected = "Select progress"
+  form_row <- function(id, criteria, help_text) {
+    tagList(
+      selectInput(
+        inputId = id,
+        label = criteria,
+        choices = options,
+        selected = "Select progress"
+      ),
+      p(help_text)
     )
   }
   
@@ -34,12 +37,12 @@ form_ui <- function(id, criteria_data, levels, options) {
       unique(criteria_data$level),
       function(x) {
         fluidRow(
-          h2(paste("Level", x, "-", names(levels[levels == x]), "RAP")),
+          h2(level_label(x, levels)),
           br(),
           pmap(criteria_data |> 
                  filter(level == x) |> 
                  mutate(id = ns(id)) |>
-                 select(id, criteria), 
+                 select(id, criteria, help_text), 
                form_row
           ),
           br(),
