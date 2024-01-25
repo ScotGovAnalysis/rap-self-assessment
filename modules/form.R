@@ -27,27 +27,21 @@ form_ui <- function(id, criteria_data, levels, options) {
         label = criteria,
         choices = options,
         selected = "Select progress"
-      ),
-      p(help_text)
+      )
     )
   }
   
-  fluidRow(
+  tagList(
     map(
       unique(criteria_data$level),
       function(x) {
-        fluidRow(
-          h2(level_label(x, levels)),
-          br(),
+        tagList(
           pmap(criteria_data |> 
                  filter(level == x) |> 
                  mutate(id = ns(id)) |>
                  select(id, criteria, help_text), 
                form_row
-          ),
-          br(),
-          hr(style = "border-color: #0065bd"),
-          br()
+          )
         )
       }
     )      
