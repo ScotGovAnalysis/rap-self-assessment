@@ -4,7 +4,7 @@ form_ui <- function(id, criteria_data, levels, options) {
   ns <- NS(id)
   
   # Check that data has required variables
-  exp_vars <- c("id", "level", "criteria", "help_text")
+  exp_vars <- c("id", "level", "criteria")
   if(any(!exp_vars %in% names(criteria_data))) {
     cli::cli_abort(
       paste("{.var criteria_data} is missing at least one of the following",
@@ -20,7 +20,7 @@ form_ui <- function(id, criteria_data, levels, options) {
     deframe()
   
   # Function to create form row
-  form_row <- function(id, criteria, help_text) {
+  form_row <- function(id, criteria) {
     tagList(
       selectInput(
         inputId = id,
@@ -39,7 +39,7 @@ form_ui <- function(id, criteria_data, levels, options) {
           pmap(criteria_data |> 
                  filter(level == x) |> 
                  mutate(id = ns(id)) |>
-                 select(id, criteria, help_text), 
+                 select(id, criteria), 
                form_row
           )
         )

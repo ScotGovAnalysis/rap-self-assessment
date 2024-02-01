@@ -1,20 +1,20 @@
-id,level,criteria,help_text
-1,0,Code written in an open-source language; e.g. R,Example
-2,0,Code well-commented,
-3,0,Repository self-contained and well-structured,
-4,0,Repository includes a README.md file,
-5,1,Code used for all data processing steps,
-6,1,Manual steps minimised,
-7,1,Using Git,
-8,1,Code published publicly on GitHub,
-9,1,Code reviewed internally,
-10,1,More detailed documentation,
-11,2,Code follows a style guide,
-12,2,Outputs produced by code,
-13,2,Functions used where appropriate,
-14,2,Dependencies documented,
-15,2,Code reviewed externally (by somebody outside of immediate team),
-16,3,Re-usable components are packaged,
-17,3,Unit tests for functions,
-18,3,Automated testing; e.g. using GitHub actions,
-19,3,Computational environment documented,
+id,level,criteria
+0.1,0,Code written in an open-source language; e.g. R
+0.2,0,Code well-commented
+0.3,0,Repository self-contained and well-structured
+0.4,0,Repository includes a README.md file
+1.1,1,Code used for all data processing steps
+1.2,1,Manual steps minimised
+1.3,1,Using Git
+1.4,1,Code published publicly on GitHub
+1.5,1,Code reviewed internally
+1.6,1,More detailed documentation
+2.1,2,Code follows a style guide
+2.2,2,Outputs produced by code
+2.3,2,Functions used where appropriate
+2.4,2,Dependencies documented
+2.5,2,Code reviewed externally (by somebody outside of immediate team)
+3.1,3,Re-usable components are packaged
+3.2,3,Unit tests for functions
+3.3,3,Automated testing; e.g. using GitHub actions
+3.4,3,Computational environment documented
