@@ -21,11 +21,20 @@ library(here)
 library(readr)
 library(purrr)
 library(tibble)
+library(stringr)
+library(knitr)
 
 walk(list.files("modules", ".R$", full.names = TRUE), source)
 
 criteria <- read_csv(here("criteria.csv"), show_col_types = FALSE) |>
-   mutate(id = paste0("id_", stringr::str_replace(id, "\\.", "_")))
+   mutate(id = paste0("id_", str_replace(id, "\\.", "_")))
+
+# Check help text available for all criteria
+if(any(!criteria$id %in% str_extract(list.files("help"), "id_\\d+_\\d+"))) {
+   stop("All IDs in `criteria.csv` must have a corresponding file in `help/`.")
+}
+
+criteria_list <- criteria |> pull(criteria, name = id)
 
 options <- c(`Complete` = "yes", 
              `In progress` = "progress", 
@@ -36,8 +45,6 @@ levels <- c(`Aspiring` = 0,
             `Fundamental` = 1,
             `Intermediate` = 2,
             `Advanced` = 3)
-
-criteria_list <- criteria |> pull(criteria, name = id)
 ```
 
 ::: {.panel-sidebar}
@@ -55,22 +62,27 @@ sidebarPanel(
 
 ::: {.panel-center}
 
-## `r level_label(0, levels)`
-
 ```{r, results='asis'}
-a <- map_chr(
-   c("id_0_1", "id_0_2", "id_1_1", "id_1_2"),
-   \(x) {
-      criteria_id <-x   
-      knitr::knit_child("_criteria.qmd", 
-                        envir = environment(), 
-                        quiet = TRUE)
+form <- map(
+   levels,
+   function(x) {
+      c(
+         paste("##", level_label(x, levels)),
+         map_chr(
+            criteria |> filter(level == x) |> pull(id),
+            function(y) {
+               criteria_id <- y
+               knit_child("_criteria.qmd",
+                          envir = environment(),
+                          quiet = TRUE)
+            }
+         )
+      )
    }
 )
 
-cat(a, sep="\n")
+cat(unlist(form), sep="\n")
 ```
-
 
 :::
 
