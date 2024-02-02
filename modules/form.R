@@ -11,11 +11,12 @@ form_ui <- function(id, criteria, options) {
     deframe()
   
   selectInput(
-        inputId = ns("form"),
-        label = criteria,
-        choices = options,
-        selected = "Select progress"
-  )
+    inputId = ns("form"),
+    label = criteria,
+    choices = options,
+    selected = "Select progress"
+  ) |>
+    tagAppendAttributes(class = "hide-label")
 
 }
 

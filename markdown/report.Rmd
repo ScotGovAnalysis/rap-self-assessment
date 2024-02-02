@@ -78,13 +78,13 @@ chart_data <-
                         label = rev(level_label(level, params$all_levels))))
 
 chart_data %>%
-  pivot_longer(cols = starts_with("perc"), 
-               names_to = "status", 
+  pivot_longer(cols = starts_with("perc"),
+               names_to = "status",
                values_to = "perc") %>%
   mutate(status = factor(status, levels = c("perc_in_progress", "perc_met"))) %>%
   ggplot(aes(y = level)) +
   geom_col(data = chart_data, aes(x = 1),
-           fill = "white",  
+           fill = "white",
            colour = sg_colour_values["dark-blue"]) +
   geom_col(aes(x = perc, fill = status),
            colour = sg_colour_values["dark-blue"]) +

@@ -1,3 +1,9 @@
+/*-- scss:defaults --*/
+
+$callout-color-tip: #0065bd;	
+
+/*-- scss:rules --*/
+
 #title-block-header {
   background-color: #0065bd; 
   color: #ffffff;
@@ -15,6 +21,10 @@
 
 body, input {
    font-size: 18px !important;
+}
+
+h3 {
+  font-size: 1.2rem !important;
 }
 
 .form-group {
@@ -36,7 +46,7 @@ body {
   padding: 1rem !important;
 }
 
-.control-label {
+.hide-label label {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -45,4 +55,9 @@ body {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.callout-tip .callout {
+   border-left-color: #0065bd !important;
+  background-color: #96ceff !important;
 }
