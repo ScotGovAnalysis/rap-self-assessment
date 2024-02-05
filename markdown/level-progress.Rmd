@@ -10,5 +10,13 @@ editor_options:
 params$input_data |>
   filter(level == x) |>
   select(criteria, status = status_label) |>
-  gt()
+  gt() |>
+  cols_label(criteria = "Criteria", status = "Status") |>
+  cols_width(criteria ~ pct(80), status ~ pct(20)) |>
+  tab_options(table.align = "left",
+              table.width = pct(100)) |>
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = list(cells_column_labels())
+  )
 ```

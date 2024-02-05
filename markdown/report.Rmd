@@ -69,7 +69,7 @@ level_met_text <- ifelse(
 
 This publication `r level_met_text`.
 
-```{r, echo = FALSE, dev = "svg", fig.align = "center", fig.width = mm_to_inch(250), fig.height = mm_to_inch(150)}
+```{r, echo = FALSE, dev = "svg", fig.align = "center", fig.width = mm_to_inch(220), fig.height = mm_to_inch(130)}
 chart_data <- 
   level_summary |>
   select(level, perc_met, perc_in_progress, all_criteria, level_met) %>%
@@ -81,7 +81,8 @@ chart_data %>%
   pivot_longer(cols = starts_with("perc"),
                names_to = "status",
                values_to = "perc") %>%
-  mutate(status = factor(status, levels = c("perc_in_progress", "perc_met"))) %>%
+  mutate(status = factor(status, 
+                         levels = c("perc_in_progress", "perc_met"))) %>%
   ggplot(aes(y = level)) +
   geom_col(data = chart_data, aes(x = 1),
            fill = "white",
@@ -91,9 +92,10 @@ chart_data %>%
   scale_fill_discrete_sg(
     reverse = TRUE,
     guide = guide_legend(reverse = TRUE),
-    labels = c("perc_met" = "Criteria Met", "perc_in_progress" = "Criteria in progress")) +
+    labels = c("perc_met" = "Criteria Met", 
+               "perc_in_progress" = "Criteria in progress")) +
   scale_x_continuous(labels = scales::percent) +
-  theme_sg(base_size = 16, legend = "bottom") +
+  theme_sg(base_size = 14, legend = "bottom") +
   labs(x = "Percentage of criteria", y = NULL, fill = NULL)
 ```
 
@@ -102,14 +104,23 @@ chart_data %>%
 ```{r, echo = FALSE}
 level_summary |>
   select(level, all_of(params$all_options), perc_met) |>
+  mutate(level = level_label(level, params$all_levels)) |>
   gt() |>
   tab_spanner(
     label = "Number of criteria",
     columns = any_of(names(params$all_options))
   ) |>
-  cols_label(level = "Level of RAP",
+  cols_label(level = "",
              perc_met = "Percentage of criteria met") |>
-  fmt_percent(perc_met, decimals = 0)
+  fmt_percent(perc_met, decimals = 0) |>
+  tab_options(table.align = "left",
+              table.width = pct(100)) |>
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = list(cells_column_labels(), 
+                     cells_column_spanners(),
+                     cells_body(columns = level))
+  )
 ```
 
 
