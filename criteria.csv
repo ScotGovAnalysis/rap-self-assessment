@@ -2,7 +2,7 @@ id,level,criteria
 0.1,0,Code written in an open-source language; e.g. R
 0.2,0,Code well-commented
 0.3,0,Repository self-contained and well-structured
-0.4,0,Repository includes a README.md file
+0.4,0,Repository includes a README file
 1.1,1,Code used for all data processing steps
 1.2,1,Manual steps minimised
 1.3,1,Using Git
