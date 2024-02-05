@@ -1,0 +1,7 @@
+<!-- Repository includes a README file -->
+
+A README file should be stored within your repository and contain a brief overview of the project including instructions for running the code and contact details for the team who owns the project.
+
+The README can be in any text file format, however if you are using or plan to use GitHub, it is recommended to use a markdown file format (`.md`) as this will be automatically displayed in your GitHub repository.
+
+[Further guidance on README files is available in the Duck book](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html#readme).

@@ -1,0 +1,15 @@
+<!-- Repository self-contained and well-structured -->
+
+A repository is another word for the folder where all the files for your project are stored. A self-contained repository means all files required for the project are stored in the same place.
+
+Your repository should have a sensible, organised, clear structure. Sub-folders may be created for code, data, lookups, data, outputs, functions (pick and choose which are relevant to your project).
+
+Code scripts should be numbered if they should be run in a certain order. Data and output files should be date-stamped. 
+
+It should be clear to somebody new to the project where to look for certain files. 
+
+The following guidance is available to help you with this:
+
+- [Keep your project structure clean - Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_structure.html#keep-your-project-structure-clean)
+
+- [Naming files - Tidyverse style guide](https://style.tidyverse.org/files.html#names)

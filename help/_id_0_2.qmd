@@ -1,1 +1,7 @@
-This is help text for criteria 0.2.
+<!-- Code well-commented -->
+
+Code comments should be used to provide context to your code. Commenting your code will help others understand the code you've written and why it's been written in a particular way.
+
+A commented line of R code starts with a single `#` followed by a space. 
+
+[Further guidance on writing code comments is available in the Duck book](https://best-practice-and-impact.github.io/qa-of-code-guidance/code_documentation.html#comments).
