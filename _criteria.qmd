@@ -13,7 +13,10 @@ cat(a, sep="\n")
 :::
 
 ```{r}
-form_ui(criteria_id, 
-        criteria_list[criteria_id], 
-        options)
+tagList(
+  form_ui(criteria_id, 
+          criteria_list[criteria_id], 
+          options),
+  hr()
+)
 ```
