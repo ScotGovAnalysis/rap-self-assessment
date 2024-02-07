@@ -4,6 +4,15 @@ $callout-color-tip: #0065bd;
 
 /*-- scss:rules --*/
 
+#quarto-document-content {
+  width: 1000px;
+}
+
+#quarto-margin-sidebar {
+  margin-right: -600px;
+  margin-left: 500px;
+}
+
 #title-block-header {
   background-color: #0065bd; 
   color: #ffffff;
@@ -19,12 +28,18 @@ $callout-color-tip: #0065bd;
   font-family: Arial;
 }
 
-body, input {
+body, input, .gt_table {
    font-size: 18px !important;
 }
 
+
+
 h3 {
   font-size: 1.2rem !important;
+}
+
+h4 {
+  font-size: 1.1rem !important;
 }
 
 .form-group {

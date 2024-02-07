@@ -10,9 +10,7 @@ download_report_ui <- function(id) {
 download_report_server <- function(input, 
                                    output, 
                                    session, 
-                                   input_data, 
-                                   levels,
-                                   options,
+                                   input_data,
                                    metadata) {
   
   output$button <- downloadHandler(
@@ -21,31 +19,42 @@ download_report_server <- function(input,
     
     content = function(file) {
       
-      # Copy the report file to a temporary directory before processing it, in
-      # case we don't have write permissions to the current working dir (which
-      # can happen when deployed).
+      # Create a temporary directory and copy all files required to render
+      # report. This step is required as sometimes when app is deployed, 
+      # we don't have write permissions to the current working directory.
+      
       temp_dir <- tempdir()
-      file.copy(paste0("markdown/", list.files("markdown")), 
-                temp_dir, 
-                overwrite = TRUE)
       
-      # Set up parameters to pass to Rmd document
-      params <- list(
-        input_data = input_data(), 
-        all_options = options,
-        all_levels = levels,
-        metadata = metadata()
+      to_copy <- c(
+        paste0("quarto-docs/", list.files("quarto-docs", recursive = TRUE)),
+        "modules/level_label.R",
+        "styles.scss",
+        paste0("data/", list.files(here::here("data")))
       )
       
-      # Knit the document, passing in the `params` list, and eval it in a
-      # child of the global environment (this isolates the code in the document
-      # from the code in this app).
-      rmarkdown::render(file.path(temp_dir, "report.Rmd"), 
-                        output_file = file,
-                        params = params,
-                        envir = new.env(parent = globalenv())
+      file.copy(to_copy, temp_dir, recursive = TRUE)
+      
+      # Save input data to temp_dir
+      readr::write_rds(input_data(), file.path(temp_dir, "input.rds"))
+
+      # Render output report from temp_dir
+      xfun::in_dir(
+        temp_dir,
+        report <- quarto::quarto_render(
+          "_report.qmd",
+          output_file = "report.html",
+          execute_params = list(metadata = metadata())
+        )
       )
+      
+      # Copy output file from temp_dir to download file path
+      file.copy(
+        file.path(temp_dir, "report.html"),
+        file
+      )
+      
     }
+    
   ) 
   
 }

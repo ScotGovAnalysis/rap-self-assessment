@@ -1,0 +1,19 @@
+### `r criteria_list[x]`
+
+::: {.callout-tip collapse="true"}
+## What does this mean?
+
+```{r, results = "asis"}
+a <- knitr::knit_child(paste0("_", x, ".qmd"),
+                       envir = environment(),
+                       quiet = TRUE)
+
+cat(a, sep="\n")
+```
+:::
+
+Status: `r input_data |> filter(id == x) |> pull(status_label)`
+
+```{r, echo = FALSE}
+htmltools::hr()
+```

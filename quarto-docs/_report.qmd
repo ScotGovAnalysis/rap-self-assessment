@@ -1,45 +1,47 @@
 ---
 title: "RAP Self Assessment Report"
-output: 
-  html_document:
-    css: "md_styles.css"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    toc-title: "Contents"
+    theme: [default, styles.scss]
+embed-resources: true
+execute:
+  echo: false
 params:
-  input_data: NA
-  all_options: NA
-  all_levels: NA
   metadata: NA
-editor_options: 
-  chunk_output_type: console
 ---
 
 ```{r echo = FALSE, include = FALSE}
 library(dplyr)
+library(readr)
 library(tidyr)
 library(gt)
 library(janitor)
 library(ggplot2)
 library(sgplot)
+library(purrr)
+library(knitr)
 
-source(here::here("modules", "level_label.R"))
+source("level_label.R")
+
+input_data <- read_rds("input.rds")
+levels <- read_rds("levels.rds")
+options <- read_rds("options.rds")
+
+criteria_list <- input_data |> pull(criteria, name = id)
 ```
 
-**Publication title**: `r params$metadata$pub_name`
-
-**Team leader**: `r params$metadata$team_lead`
-
-**Team members**: `r params$metadata$team_members`
-
-**Report produced**: `r format(lubridate::today(), "%d %B %Y")`
-
-
-## Level of RAP
+This report was produced using the [Scottish Government RAP Self Assessment tool](https://alicebyers.shinyapps.io/self-assess2/).
 
 ```{r, echo = FALSE, include = FALSE}
 level_summary <-
-  params$input_data |>
+  input_data |>
   select(level, status) |> 
   mutate(n = 1) |>
-  complete(level, status = params$all_options, fill = list(n = 0)) |>
+  complete(level, status = as.character(options), fill = list(n = 0)) |>
   pivot_wider(names_from = status, names_expand = TRUE,
               values_from = n, values_fn = sum, values_fill = 0) |>
   rowwise() |>
@@ -60,22 +62,31 @@ max_level <- ifelse(
 
 level_met_text <- ifelse(
   is.na(max_level),
-  paste("is working towards", 
-        level_label(min(params$all_levels), params$all_levels)),
-  paste("has met level", 
-        level_label(max_level, params$all_levels))
+  paste("Working towards", 
+        level_label(min(levels), levels)),
+  level_label(max_level, levels)
 )
 ```
 
-This publication `r level_met_text`.
+## Summary & Progress
 
-```{r, echo = FALSE, dev = "svg", fig.align = "center", fig.width = mm_to_inch(220), fig.height = mm_to_inch(130)}
+**Publication title**: `r params$metadata$pub_name`
+
+**Team leader**: `r params$metadata$team_lead`
+
+**Team members**: `r params$metadata$team_members`
+
+**Report produced**: `r format(lubridate::today(), "%d %B %Y")`
+
+**RAP Level**: `r level_met_text`
+
+```{r, echo = FALSE, dev = "svg", fig.align = "center", fig.width = mm_to_inch(220), fig.height = mm_to_inch(130), fig.alt = ""}
 chart_data <- 
   level_summary |>
   select(level, perc_met, perc_in_progress, all_criteria, level_met) %>%
   mutate(level = factor(level,
-                        rev(params$all_levels),
-                        label = rev(level_label(level, params$all_levels))))
+                        rev(levels),
+                        label = rev(level_label(level, levels))))
 
 chart_data %>%
   pivot_longer(cols = starts_with("perc"),
@@ -103,14 +114,14 @@ chart_data %>%
 
 ```{r, echo = FALSE}
 level_summary |>
-  select(level, all_of(params$all_options), perc_met) |>
-  mutate(level = level_label(level, params$all_levels)) |>
+  select(level, all_of(options), perc_met) |>
+  mutate(level = level_label(level, levels)) |>
   gt() |>
   tab_spanner(
     label = "Number of criteria",
-    columns = any_of(names(params$all_options))
+    columns = any_of(names(options))
   ) |>
-  cols_label(level = "",
+  cols_label(level = "RAP Level",
              perc_met = "Percentage of criteria met") |>
   fmt_percent(perc_met, decimals = 0) |>
   tab_options(table.align = "left",
@@ -123,17 +134,16 @@ level_summary |>
   )
 ```
 
+<!-- ## Assessment by Level  -->
 
-## Assessment by Level 
-
-```{r, echo=FALSE, results='asis'}
+```{r, echo = FALSE, results = "asis"}
 out <- 
   map(
-    unique(params$input_data$level),
+    unique(input_data$level),
     function(x) {
-      knitr::knit_child('level-progress.Rmd', 
-                        envir = environment(), 
-                        quiet = TRUE)
+      knit_child("_level-progress.qmd", 
+                 envir = environment(), 
+                 quiet = TRUE)
     }
   )
 

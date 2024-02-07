@@ -1,0 +1,16 @@
+## `r level_label(x, levels)`
+
+```{r, results = "asis"}
+ids <- unique(input_data |> filter(level == x) |> pull(id))
+
+report <- map(
+   ids,
+   function(x) {
+     knit_child("_criteria-report.qmd",
+                envir = environment(),
+                quiet = TRUE)
+   }
+)
+
+cat(unlist(report), sep="\n")
+```
