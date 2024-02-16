@@ -34,7 +34,7 @@ options <- read_rds("options.rds")
 criteria_list <- input_data |> pull(criteria, name = id)
 ```
 
-This report was produced using the [Scottish Government RAP Self Assessment tool](https://alicebyers.shinyapps.io/self-assess2/).
+This report was produced using the [Scottish Government RAP Self Assessment tool](https://scotland.shinyapps.io/sg-rap-self-assessment/).
 
 ```{r, echo = FALSE, include = FALSE}
 level_summary <-
