@@ -26,13 +26,14 @@ library(knitr)
 
 walk(list.files("modules", ".R$", full.names = TRUE), source)
 
-criteria <- read_csv(here("criteria.csv"), show_col_types = FALSE) |>
+criteria <- read_csv(here("data", "criteria.csv"), show_col_types = FALSE) |>
    mutate(id = paste0("id_", str_replace(id, "\\.", "_")))
 
 # Check help text available for all criteria
 if(any(!criteria$id %in% str_extract(list.files(here("quarto-docs", "help")), 
                                      "id_\\d+_\\d+"))) {
-   stop("All IDs in `criteria.csv` must have a corresponding file in `help/`.")
+   stop("All IDs in `data/criteria.csv` must have a corresponding file in ", 
+        "`quarto-docs/help/`.")
 }
 
 criteria_list <- criteria |> pull(criteria, name = id)
