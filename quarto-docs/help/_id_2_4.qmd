@@ -1,1 +1,13 @@
-Further information still to be added.
+<!--Dependencies documented-->
+
+To ensure reproducibility of your code it is important that package dependencies are documented in your RAP project code repository. Record names and (ideally) the version of each external R or Python package used.
+
+This [Government Analysis Function article](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/dependency-and-reproducibility/) has some useful information.
+
+Ways to achieve this for RAP projects primarily coded in R:
+
+-   Consider having one R script where all the packages used in the project are loaded. Document this in the README.
+-   The output of `devtools::session_info()$packages` could be saved to a text file in your repository.
+-   If developing an R package the DESCRIPTION file provides a formal way to record package dependencies.
+
+Level 3 - "Advanced RAP Computational environment documented" describes full environment reproducibility.

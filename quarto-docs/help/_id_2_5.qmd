@@ -1,1 +1,9 @@
-Further information still to be added.
+<!--Code reviewed externally (by somebody outside of immediate team)-->
+Having someone external to the team without internal knowledge of the data and processes can provide benefits such as:
+
+- Ensures reproducibility of the process as a standalone process without relying on undocumented internal knowledge.
+- People distant from the process can provide useful feedback and perspective on a process.
+
+See Duck Book section on [peer review](https://best-practice-and-impact.github.io/qa-of-code-guidance/peer_review.html).
+
+It might not always be possible to get someone cleared to access the data required to run the full process. If that is the case a knowledgeable reviewer on RAP best practices might still offer suggestions on style and structure of the code.
