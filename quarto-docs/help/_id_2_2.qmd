@@ -1,1 +1,10 @@
-Further information still to be added.
+<!--Outputs produced by code-->
+A RAP project usually produces one or more outputs such as a report in html format or a dashboard. These outputs might be published externally.  
+
+Open source programming languages such as R allow all components of an output to be created with code. This includes all charts, tables and commentary they contain. R Markdown or Quarto might be used for html reports or Shiny for dashboards.
+
+Some benefits of this approach:
+-  It reduces error in copying and pasting items into a document.
+-  It saves time once the report is coded as it can be regenerated each time source data is updated.
+-  It can ensure accessible, well formatted and professional looking outputs. 
+
