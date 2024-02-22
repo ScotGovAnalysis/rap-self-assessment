@@ -8,6 +8,6 @@ Ways to achieve this for RAP projects primarily coded in R:
 
 -   Consider having one R script where all the packages used in the project are loaded. Document this in the README.
 -   The output of `devtools::session_info()$packages` could be saved to a text file in your repository.
--   If developing an R package the DESCRIPTION file provides a formal way to record package dependencies.
+-   If developing an R package, the DESCRIPTION file provides a formal way to record package dependencies.
 
-Level 3 - "Advanced RAP Computational environment documented" describes full environment reproducibility.
+Level 3 - "Advanced RAP Computational environment documented" is a further step to ensure specification of the computing environment has been documented.
