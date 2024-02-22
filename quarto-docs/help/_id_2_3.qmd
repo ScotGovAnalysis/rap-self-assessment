@@ -1,1 +1,5 @@
-Further information still to be added.
+<!--Functions used where appropriate-->
+Replacing repetitive blocks of code with functions can make your code easier to read and make it easier for you or others to maintain and update the code in future. This process is often known as code refactoring.
+
+Ensuring functions are used when appropriate is a foundation for developing a more advanced RAP. Functions might be reusable components which can be used across projects and eventually put into a package. Unit tests can be written for functions (see [Level 3 - Advanced RAP section](#unit-tests-for-functions)).
+
