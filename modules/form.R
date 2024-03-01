@@ -10,18 +10,29 @@ form_ui <- function(id, criteria, options) {
     arrange(value != "not_assessed") |>
     deframe()
   
-  selectInput(
-    inputId = ns("form"),
-    label = criteria,
-    choices = options,
-    selected = "Select progress"
-  ) |>
-    tagAppendAttributes(class = "hide-label")
+  tagList(
+    
+    selectInput(
+      inputId = ns("status"),
+      label = criteria,
+      choices = options,
+      selected = "Select progress"
+    ) |>
+      tagAppendAttributes(class = "hide-label"),
 
+    textAreaInput(
+      inputId = ns("note"),
+      label = NULL,
+      value = "",
+      placeholder = "Add notes here",
+      resize = "vertical"
+    )
+
+  )  
 }
 
 form_server <- function(input, output, session) {
   
-  return(reactive(input$form))
+  return(reactive(list(status = input$status, note = input$note)))
   
 }

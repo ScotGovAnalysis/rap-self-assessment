@@ -1,3 +1,9 @@
+```{r, echo = FALSE}
+status <- input_data |> filter(id == x) |> pull(status_label)
+
+note <- input_data |> filter(id == x) |> pull(note)
+```
+
 ### `r criteria_list[x]`
 
 ::: {.callout-tip collapse="true"}
@@ -12,7 +18,9 @@ cat(a, sep="\n")
 ```
 :::
 
-Status: `r input_data |> filter(id == x) |> pull(status_label)`
+**Status**: `r status`
+
+`r if(note != "") paste("**Notes**:", note)`
 
 ```{r, echo = FALSE}
 htmltools::hr()
