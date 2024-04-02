@@ -1,5 +1,5 @@
 <!--Re-usable components are packaged-->
-Creating an installable package is the best way to make re-usable code available for use in other projects within your team, or even the wider organisation.
+Creating an installable package is the best way to make code components available for use in other projects within your team, or even the wider organisation.
 
 An example of a package developed in the Scottish Government and used by many teams is [sgplot](https://scotgovanalysis.github.io/sgplot/).
 
