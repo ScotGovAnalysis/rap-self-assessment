@@ -19,7 +19,10 @@ form_ui <- function(id, criteria, options) {
       selected = "Select progress"
     ) |>
       tagAppendAttributes(class = "hide-label"),
-
+    
+    #br(style="line-height: 50px"),
+    HTML("<div style=\"line-height:50%;\"><br></div>"),
+    
     textAreaInput(
       inputId = ns("note"),
       label = NULL,
