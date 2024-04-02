@@ -1,7 +1,7 @@
 <!--Re-usable components are packaged-->
 Creating an installable package is the best way to make re-usable code available for use in other projects within your team, or even the wider organisation.
 
-An example of a package developed in the Scottish Government and used by many teams is [sgplot](https://scotgovanalysis.github.io/sgplot/)
+An example of a package developed in the Scottish Government and used by many teams is [sgplot](https://scotgovanalysis.github.io/sgplot/).
 
 R and Python both have specific structures for packaging code. If you are new to creating packages in R then the [R Packages](https://r-pkgs.org/) online book is an excellent place to start. It is surprisingly easy to create an installable package in R!
 

@@ -1,10 +1,11 @@
 <!--Computational environment documented -->
-A further step in ensuring reproducibility of a RAP process is to document the version of R or Python and the operating system on which the RAP has been developed.
 
-A basic way to achieve this in R could be to save the output of `devtools::session_info()` into the repository. 
+A further step in ensuring reproducibility of a RAP is to document the programming language version (e.g. R 4.2.2) and operating system (e.g. Windows 10 x64 (build 19045)) on which the code was developed and can be ran successfully.
 
-A more advanced solution is to use a [Docker](https://www.docker.com/) container and publish a Dockerfile in your code repository. 
+A basic way to achieve this in R could be to save the output of `devtools::session_info()` into the repository.
 
-Use of Docker is quite an advanced topic, but helpful resources exist for both R and Python. For R see [this chapter](https://raps-with-r.dev/repro_cont.html#what-is-docker) of the RAPs with R online book and look at the [Rocker project](https://rocker-project.org/). 
+A more advanced solution is to use a [Docker](https://www.docker.com/) container and publish a Dockerfile in your code repository.
 
-For Python, start by documenting the packages used in your code in an environment.yml or requirements.txt file in your repository. This file is then the basis for your Dockerfile. For Python you might find [this introductory guide](https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html#reproducible-computational-environments) useful.   
+Use of Docker is quite an advanced topic, but helpful resources exist for both R and Python. For R see [this chapter](https://raps-with-r.dev/repro_cont.html#what-is-docker) of the RAPs with R online book and look at the [Rocker project](https://rocker-project.org/).
+
+For Python, start by documenting the packages used in your code in an environment.yml or requirements.txt file in your repository. This file can then be referenced in your Dockerfile. For Python you might find [this introductory guide](https://aeturrell.github.io/coding-for-economists/wrkflow-rap.html#reproducible-computational-environments) useful.
