@@ -84,19 +84,17 @@ cat(unlist(form), sep="\n")
 ```{r server}
 #| context: server
 
-form_response <- map(
+form_responses <- map(
    set_names(unique(criteria$id)),
    ~ possibly(callModule)(form_server, .x)
 )
 
 data_output <- reactive({
    
-   values <-
-      map_dfr(form_response, ~ .x()) |>
-      pivot_longer(everything(), names_to = "id", values_to = "status")
+   form_responses <- map_dfr(form_responses, ~ .x(), .id = "id")
    
    criteria |>
-      left_join(values, by = "id") |>
+      left_join(form_responses, by = "id") |>
       mutate(
          status = replace_na(status, "not_assessed"),
          status_label = case_when(

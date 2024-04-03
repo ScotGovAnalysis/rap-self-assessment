@@ -13,9 +13,12 @@ download_csv_server <- function(input, output, session, input_data) {
   output$button <- downloadHandler(
     filename = paste0(lubridate::today(), "_rap-assessment.csv"),
     content = function(file) {
-      write.csv(input_data() |> select(level, criteria, status_label), 
-                file, 
-                row.names = FALSE)
+      write.csv(
+        input_data() |> 
+          select(level, criteria, status = status_label, note), 
+        file, 
+        row.names = FALSE
+      )
     }
   )
   
