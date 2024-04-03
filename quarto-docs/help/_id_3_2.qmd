@@ -1,1 +1,6 @@
-Further information still to be added.
+<!--Unit tests for functions-->
+Unit tests verify individual units of code are working correctly. In R and Python, tests may be coded to ensure individual functions are behaving as expected. For example, you may test that they return the expected outputs, or that they produce an error or warning when provided with invalid arguments.
+
+In R the [testthat](https://testthat.r-lib.org/) package can be used to write unit tests. In Python [pytest](https://docs.pytest.org/en/8.0.x/) is commonly used. Unit tests should always be written for package functions, but they can also be created for functions used within a RAP without developing an installable package.
+
+There is a useful general guide on code testing [in the Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/testing_code.html).

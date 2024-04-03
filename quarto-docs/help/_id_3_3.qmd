@@ -1,1 +1,13 @@
-Further information still to be added.
+<!--Automated testing; e.g. using GitHub actions-->
+
+If your code repository is hosted on GitHub.com, you can use [GitHub Actions](https://docs.github.com/en/actions) to automate quality assurance processes, a practice known in software engineering as Continuous Integration (CI). Other code hosting services, such as GitLab, offer equivalent tools.
+
+If you have created unit tests in your code repository, GitHub Actions can be configured to execute these tests on GitHub's servers each time changes are committed, reporting back on any failures.
+
+GitHub Actions can be used to automate other processes:
+
+-   Ensure a package builds successfully.
+-   Run code styling and linting checks.
+-   Updating published documentation, for example on a GitHub Pages site.
+
+For more information, see the [Continuous Integration section](https://best-practice-and-impact.github.io/qa-of-code-guidance/continuous_integration.html) of the Duck Book. An example of GitHub Action workflows typically used in an R Package can be seen in [sgplot](https://github.com/ScotGovAnalysis/sgplot/tree/main/.github/workflows).
