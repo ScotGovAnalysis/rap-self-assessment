@@ -10,4 +10,4 @@ GitHub Actions can be used to automate other processes:
 -   Run code styling and linting checks.
 -   Updating published documentation, for example on a GitHub Pages site.
 
-For more information, see the [Continuous Integration section](https://best-practice-and-impact.github.io/qa-of-code-guidance/continuous_integration.html) of the Duck Book.
+For more information, see the [Continuous Integration section](https://best-practice-and-impact.github.io/qa-of-code-guidance/continuous_integration.html) of the Duck Book. An example of GitHub Action workflows typically used in an R Package can be seen in [sgplot](https://github.com/ScotGovAnalysis/sgplot/tree/main/.github/workflows).
