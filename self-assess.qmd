@@ -33,7 +33,7 @@ criteria <- read_rds(here("data", "criteria.rds"))
 # Check help text available for all criteria
 if(any(!criteria$id %in% str_extract(list.files(here("quarto-docs", "help")), 
                                      "id_\\d+_\\d+"))) {
-   stop("All IDs in `data/criteria.csv` must have a corresponding file in ", 
+   stop("All IDs in `data/criteria.rds` must have a corresponding file in ", 
         "`quarto-docs/help/`.")
 }
 
