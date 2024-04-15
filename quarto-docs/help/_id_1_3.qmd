@@ -1,1 +1,5 @@
-Further information still to be added.
+<!-- Using Git -->
+
+[Git](https://git-scm.com/) is a version control software for tracking changes to files. Using Git means you don’t need to save multiple copies of the same file to retain older versions. Git keeps a record of what change was made, when the change was made, why the change was made, and who made the change.
+
+Guidance for installing and using Git on the SCOTS network is available on the [Statistics Group SharePoint site](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Version-Control.aspx).
