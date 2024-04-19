@@ -1,1 +1,14 @@
-Further information still to be added.
+<!-- Code published publicly on GitHub -->
+
+Making your code open means it is available to anybody who would like to view it. Publishing your code can:
+
+-   Increase trust in your analysis
+-   Encourage collaboration
+-   Improve quality
+-   Help others benefit from your work.
+
+The [Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html#open-source-your-code) provides more examples of how publishing your code can bring personal benefits and benefits to the public.
+
+In the Scottish Government, analysts can publish their code on the [Scottish Government Analysis GitHub organisation](https://github.com/ScotGovAnalysis). GitHub is a web interface for hosting version controlled code. GitHub can also be used to facilitate code reviews, manage projects and track issues.
+
+Guidance for using GitHub on the SCOTS network is available on the [Statistics Group SharePoint site](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Version-Control.aspx).
