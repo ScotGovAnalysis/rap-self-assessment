@@ -8,20 +8,23 @@ $callout-color-tip: #0065bd;
   width: 1000px;
 }
 
-#quarto-margin-sidebar {
-  margin-right: -600px;
-  margin-left: 500px;
+#title-block-header {
+  color: #0065bd;
+  border-bottom-style: solid;
 }
 
-#title-block-header {
-  background-color: #0065bd; 
-  color: #ffffff;
-  padding: 1rem;
+a {
+  color: #0065bd;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a.active {
+    border-left: 1px solid #0065bd;
+    color: #0065bd !important;
 }
 
 .btn {
   font-size: 18px !important;
-  width: 100% !important;
+  /*--width: 100% !important;--*/
 }
 
 * {
@@ -54,13 +57,6 @@ body {
   margin: 1rem !important;
 }
 
-.panel-sidebar {
-  position: sticky;
-  top: 2rem;
-  align-self: start;
-  padding: 1rem !important;
-}
-
 .hide-label label {
   border: 0;
   clip: rect(0 0 0 0);
@@ -71,6 +67,19 @@ body {
   position: absolute;
   width: 1px;
 }
+
+/*---
+.anchorjs-link {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+---*/
 
 .callout-tip .callout {
    border-left-color: #0065bd !important;

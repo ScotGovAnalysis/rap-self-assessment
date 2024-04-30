@@ -1,0 +1,28 @@
+## `r level_label(level, all_levels)`
+
+```{r, results = "asis"}
+level_ids <- criteria |> filter(level == .env$level) |> pull(id)
+
+out <- map_chr(
+  level_ids,
+  function(id) {
+    knitr::knit_child(
+      here("quarto-docs", "_criteria-form.qmd"),
+      envir = environment(),
+      quiet = TRUE
+    )
+  }
+)
+
+cat(out, sep = "\n")
+```
+
+```{r}
+if(level != max(all_levels)) {
+  a(
+    "Skip to download report",
+    href = "#download-report",
+    `data-scroll-target` = "#download-report"
+  )
+}
+```

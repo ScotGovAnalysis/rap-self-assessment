@@ -1,24 +1,24 @@
-### `r criteria_list[criteria_id]`
+### `r criteria |> filter(id == .env$id) |> pull(criteria)`
 
 ::: {.callout-tip collapse="true"}
 ## What does this mean?
 
 ```{r, results = "asis"}
-a <- knitr::knit_child(
-  paste0("help/_", criteria_id, ".qmd"), 
+out <- knitr::knit_child(
+  here("quarto-docs", "help", paste0("_", id, ".qmd")), 
   envir = environment(), 
   quiet = TRUE
 )
 
-cat(a, sep="\n")
+cat(out, sep="\n")
 ```
 :::
 
 ```{r}
 tagList(
-  form_ui(criteria_id, 
-          criteria_list[criteria_id], 
-          options),
+  form_ui(id, 
+          criteria |> filter(id == .env$id) |> pull(criteria), 
+          all_options),
   hr()
 )
 ```
