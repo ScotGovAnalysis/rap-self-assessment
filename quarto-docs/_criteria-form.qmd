@@ -1,21 +1,13 @@
 ### `r criteria |> filter(id == .env$id) |> pull(criteria)`
 
-::: {.callout-tip collapse="true"}
-## What does this mean?
-
 ```{r, results = "asis"}
-out <- knitr::knit_child(
-  here("quarto-docs", "help", paste0("_", id, ".qmd")), 
-  envir = environment(), 
-  quiet = TRUE
-)
-
-cat(out, sep="\n")
+details("What does this mean?",
+        here("quarto-docs", "help", paste0("_", id, ".qmd")))
 ```
-:::
 
 ```{r}
 tagList(
+  HTML("<div style=\"line-height:50%;\"><br></div>"),
   form_ui(id, 
           criteria |> filter(id == .env$id) |> pull(criteria), 
           all_options),

@@ -44,14 +44,12 @@ if(any(!criteria$id %in% str_extract(list.files(here("quarto-docs", "help")),
         "`quarto-docs/help/`.")
 }
 
-#criteria_list <- criteria |> pull(criteria, name = id)
-
 # Read in lookup data
 all_options <- read_rds(here("data", "options.rds"))
 all_levels  <- read_rds(here("data", "levels.rds"))
 
+# Set project directory as root when using knit_child
 opts_knit$set(root.dir = here())
-
 ```
 
 

@@ -35,8 +35,6 @@ body, input, .gt_table {
    font-size: 18px !important;
 }
 
-
-
 h3 {
   font-size: 1.2rem !important;
 }
@@ -68,20 +66,40 @@ body {
   width: 1px;
 }
 
-/*---
-.anchorjs-link {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+/* Style the buttons that are used to open and close the accordion panel */
+details {
+  /*margin-top: 0.25rem;
+  margin-bottom: 0;
+  padding: 6px 12px;*/
+  margin: .25rem 0;
+  width: 100%;
+  text-align: left;
 }
----*/
 
-.callout-tip .callout {
-   border-left-color: #0065bd !important;
-  background-color: #96ceff !important;
+details>summary {
+  color: #0064bd;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.details_summary:hover {
+  background-color: #d9effc;
+}
+
+summary {
+  padding: .1rem;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.details_text {
+  border-left: 3px solid #b3b3b3;
+  padding: .2rem;
+  padding-left: .7rem;
+  box-sizing: border-box;
+  margin-top: .5rem;
 }
