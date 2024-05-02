@@ -1,8 +1,10 @@
 ---
-title: "Scottish Government RAP Self Assessment"
+title: "RAP Self Assessment"
 format:
   html:
     theme: [default, styles.scss]
+    title-block-banner: true
+    template-partials: partials/title-block.html
     toc: true
     toc-location: left
     toc-depth: 2

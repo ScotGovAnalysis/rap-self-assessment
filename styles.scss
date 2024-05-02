@@ -4,13 +4,21 @@ $callout-color-tip: #0065bd;
 
 /*-- scss:rules --*/
 
-#quarto-document-content {
-  width: 1000px;
-}
-
 #title-block-header {
   color: #0065bd;
   border-bottom-style: solid;
+}
+
+#title-block-header img {
+  float: left;
+  padding-right: 1.2rem;
+  min-height: 32px;
+  max-height: 40px;
+}
+
+#title-block-header h1 {
+  position: relative;
+  font-size: calc(1rem + 1.14vw);
 }
 
 a {
@@ -24,7 +32,6 @@ a {
 
 .btn {
   font-size: 18px !important;
-  /*--width: 100% !important;--*/
 }
 
 * {
@@ -68,9 +75,6 @@ body {
 
 /* Style the buttons that are used to open and close the accordion panel */
 details {
-  /*margin-top: 0.25rem;
-  margin-bottom: 0;
-  padding: 6px 12px;*/
   margin: .25rem 0;
   width: 100%;
   text-align: left;
@@ -89,7 +93,7 @@ summary {
   padding: .1rem;
 }
 
-/* Style the accordion panel. Note: hidden by default */
+/* Style the details panel. Note: hidden by default */
 .panel {
   background-color: white;
   display: none;

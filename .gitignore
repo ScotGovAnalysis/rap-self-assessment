@@ -4,5 +4,6 @@
 .Ruserdata
 
 *.html
+!title-block.html
 
 rsconnect/*
