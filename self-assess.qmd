@@ -5,9 +5,10 @@ format:
     theme: [default, styles.scss]
     title-block-banner: true
     template-partials: partials/title-block.html
+    logo: images/SG-logo.jpg
     toc: true
-    toc-location: left
     toc-depth: 2
+    toc-location: left
     toc-title: "Contents"
     anchor-sections: false
     smooth-scroll: true

@@ -6,17 +6,14 @@ note <- input_data |> filter(id == x) |> pull(note)
 
 ### `r criteria_list[x]`
 
-::: {.callout-tip collapse="true"}
-## What does this mean?
-
 ```{r, results = "asis"}
-a <- knitr::knit_child(paste0("_", x, ".qmd"),
-                       envir = environment(),
-                       quiet = TRUE)
-
-cat(a, sep="\n")
+details("What does this mean?",
+        paste0("_", x, ".qmd"))
 ```
-:::
+
+```{r}
+HTML("<div style=\"line-height:50%;\"><br></div>")
+```
 
 **Status**: `r status`
 
