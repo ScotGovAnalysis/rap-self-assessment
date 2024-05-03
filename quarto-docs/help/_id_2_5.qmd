@@ -1,4 +1,4 @@
-<!--Code reviewed externally (by somebody outside of immediate team)-->
+<!--Code reviewed by somebody outside the immediate team-->
 It is beneficial for someone external to the team to review the RAP code:
 
 - It ensures reproducibility of the RAP as a standalone process, not relying on undocumented internal knowledge.

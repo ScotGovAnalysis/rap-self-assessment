@@ -1,1 +1,7 @@
-Further information still to be added.
+<!-- Code used for all data processing steps -->
+
+Data processing includes steps to extract data from its storage location, cleaning, restructuring and linking with other data sources.
+
+Using code for these steps can help to document all changes that are made to a dataset and minimise the risk of human error when carrying out these steps manually.
+
+The R for Data Science book has guidance on using code for [importing data](https://r4ds.hadley.nz/data-import), [data transformation](https://r4ds.hadley.nz/data-transform) and [tidying](https://r4ds.hadley.nz/data-tidy), including recommendations of which R packages to use.

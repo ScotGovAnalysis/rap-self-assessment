@@ -1,1 +1,7 @@
-Further information still to be added.
+<!-- Manual steps minimised -->
+
+Manual steps are anything that involves pointing and clicking. This includes processes such as navigating to a website to download a data file, copying and pasting data, renaming or moving files or restructuring data in Excel.
+
+Many of these steps can be automated using code. By using code, steps can be repeated more accurately, the need for documentation is reduced as the process is already written down, and time is saved.
+ 
+Some processes written in code can still require a lot of manual intervention, for example, updating the year in multiple places within an R script. In these cases, think about whether you can replace these multiple instances with a named variable that is defined once at the start of your code.

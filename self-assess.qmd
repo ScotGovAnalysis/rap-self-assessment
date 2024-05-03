@@ -18,6 +18,8 @@ server: shiny
 
 This tool is a prototype for analysts in the Scottish Government to self-assess their progress in developing [Reproducible Analytical Pipelines](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/).
 
+If you have any feedback on this tool, please [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).
+
     
 ```{r setup, include = FALSE}
 #| context: setup
@@ -37,13 +39,12 @@ library(knitr)
 walk(list.files("modules", ".R$", full.names = TRUE), source)
 
 # Read in criteria list
-criteria <- read_csv(here("data", "criteria.csv"), show_col_types = FALSE) |>
-   mutate(id = paste0("id_", str_replace(id, "\\.", "_")))
+criteria <- read_rds(here("data", "criteria.rds"))
 
 # Check help text available for all criteria
 if(any(!criteria$id %in% str_extract(list.files(here("quarto-docs", "help")), 
                                      "id_\\d+_\\d+"))) {
-   stop("All IDs in `data/criteria.csv` must have a corresponding file in ", 
+   stop("All IDs in `data/criteria.rds` must have a corresponding file in ", 
         "`quarto-docs/help/`.")
 }
 
