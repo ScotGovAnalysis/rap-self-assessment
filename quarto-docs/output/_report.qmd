@@ -83,11 +83,11 @@ level_met_text <- ifelse(
 
 ## Summary & Progress
 
-**Publication title**: `r params$metadata$pub_name`
+**Project name**: `r params$metadata$name`
 
-**Team leader**: `r params$metadata$team_lead`
+**Project lead**: `r params$metadata$lead`
 
-**Team members**: `r params$metadata$team_members`
+**Project team members**: `r params$metadata$members`
 
 **Report produced**: `r format(lubridate::today(), "%d %B %Y")`
 
