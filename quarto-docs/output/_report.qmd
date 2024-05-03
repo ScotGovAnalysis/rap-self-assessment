@@ -49,6 +49,18 @@ criteria_list <- input_data |> pull(criteria, name = id)
 
 This report was produced using the [Scottish Government RAP Self Assessment tool](https://scotland.shinyapps.io/sg-rap-self-assessment/).
 
+**Project name**: `r params$metadata$name`
+
+**Project lead**: `r params$metadata$lead`
+
+**Project team members**: `r params$metadata$members`
+
+**Report produced**: `r format(lubridate::today(), "%d %B %Y")`
+
+<div style=\"line-height:50%;\"><br></div>
+
+## Progress summary
+
 ```{r, echo = FALSE, include = FALSE}
 level_summary <-
   input_data |>
@@ -80,16 +92,6 @@ level_met_text <- ifelse(
   level_label(max_level, levels)
 )
 ```
-
-## Summary & Progress
-
-**Project name**: `r params$metadata$name`
-
-**Project lead**: `r params$metadata$lead`
-
-**Project team members**: `r params$metadata$members`
-
-**Report produced**: `r format(lubridate::today(), "%d %B %Y")`
 
 **RAP Level**: `r level_met_text`
 
@@ -123,7 +125,7 @@ chart_data %>%
   labs(x = "Percentage of criteria", y = NULL, fill = NULL)
 ```
 
-<br>
+<div style=\"line-height:50%;\"><br></div>
 
 ```{r, echo = FALSE}
 level_summary |>
