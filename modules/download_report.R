@@ -28,7 +28,10 @@ download_report_server <- function(input,
       to_copy <- c(
         paste0("quarto-docs/", list.files("quarto-docs", recursive = TRUE)),
         "modules/level_label.R",
+        "modules/details.R",
         "styles.scss",
+        "partials/title-block.html",
+        "images/SG-logo.jpg",
         paste0("data/", list.files(here::here("data")))
       )
       

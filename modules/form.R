@@ -16,11 +16,11 @@ form_ui <- function(id, criteria, options) {
       inputId = ns("status"),
       label = criteria,
       choices = options,
-      selected = "Select progress"
+      selected = "Select progress",
+      selectize = FALSE
     ) |>
       tagAppendAttributes(class = "hide-label"),
     
-    #br(style="line-height: 50px"),
     HTML("<div style=\"line-height:50%;\"><br></div>"),
     
     textAreaInput(

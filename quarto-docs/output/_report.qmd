@@ -2,11 +2,16 @@
 title: "RAP Self Assessment Report"
 format: 
   html:
+    theme: [default, styles.scss]
+    title-block-banner: true
+    template-partials: title-block.html
+    logo: SG-logo.jpg
     toc: true
     toc-depth: 2
     toc-location: left
     toc-title: "Contents"
-    theme: [default, styles.scss]
+    anchor-sections: false
+    smooth-scroll: true
 embed-resources: true
 execute:
   echo: false
@@ -15,6 +20,12 @@ params:
 ---
 
 ```{r echo = FALSE, include = FALSE}
+
+# NOTE: This document is rendered within a temp directory created by the
+# download_report module. Other files required to render this document are
+# copied to this temp directory and so file paths in this file are relative 
+# to this temp directory. 
+
 library(dplyr)
 library(readr)
 library(tidyr)
@@ -24,8 +35,10 @@ library(ggplot2)
 library(sgplot)
 library(purrr)
 library(knitr)
+library(htmltools)
 
 source("level_label.R")
+source("details.R")
 
 input_data <- read_rds("input.rds")
 levels <- read_rds("levels.rds")

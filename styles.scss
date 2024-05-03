@@ -4,24 +4,34 @@ $callout-color-tip: #0065bd;
 
 /*-- scss:rules --*/
 
-#quarto-document-content {
-  width: 1000px;
-}
-
-#quarto-margin-sidebar {
-  margin-right: -600px;
-  margin-left: 500px;
-}
-
 #title-block-header {
-  background-color: #0065bd; 
-  color: #ffffff;
-  padding: 1rem;
+  color: #0065bd;
+  border-bottom-style: solid;
+}
+
+#title-block-header img {
+  float: left;
+  padding-right: 1.2rem;
+  min-height: 32px;
+  max-height: 40px;
+}
+
+#title-block-header h1 {
+  position: relative;
+  font-size: calc(1rem + 1.14vw);
+}
+
+a {
+  color: #0065bd;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a.active {
+    border-left: 1px solid #0065bd;
+    color: #0065bd !important;
 }
 
 .btn {
   font-size: 18px !important;
-  width: 100% !important;
 }
 
 * {
@@ -31,8 +41,6 @@ $callout-color-tip: #0065bd;
 body, input, .gt_table {
    font-size: 18px !important;
 }
-
-
 
 h3 {
   font-size: 1.2rem !important;
@@ -54,13 +62,6 @@ body {
   margin: 1rem !important;
 }
 
-.panel-sidebar {
-  position: sticky;
-  top: 2rem;
-  align-self: start;
-  padding: 1rem !important;
-}
-
 .hide-label label {
   border: 0;
   clip: rect(0 0 0 0);
@@ -72,7 +73,37 @@ body {
   width: 1px;
 }
 
-.callout-tip .callout {
-   border-left-color: #0065bd !important;
-  background-color: #96ceff !important;
+/* Style the buttons that are used to open and close the accordion panel */
+details {
+  margin: .25rem 0;
+  width: 100%;
+  text-align: left;
+}
+
+details>summary {
+  color: #0064bd;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.details_summary:hover {
+  background-color: #d9effc;
+}
+
+summary {
+  padding: .1rem;
+}
+
+/* Style the details panel. Note: hidden by default */
+.panel {
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.details_text {
+  border-left: 3px solid #b3b3b3;
+  padding: .2rem;
+  padding-left: .7rem;
+  box-sizing: border-box;
+  margin-top: .5rem;
 }
