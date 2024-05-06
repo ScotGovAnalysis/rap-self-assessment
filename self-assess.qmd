@@ -18,7 +18,7 @@ server: shiny
 
 This tool is a prototype for analysts in the Scottish Government to self-assess their progress in developing [Reproducible Analytical Pipelines](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/).
 
-If you have any feedback on this tool, please [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).
+If you have any feedback on this tool, please [file an issue on GitHub](https://github.com/ScotGovAnalysis/rap-self-assessment/issues) or [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).
 
     
 ```{r setup, include = FALSE}
