@@ -8,8 +8,7 @@ metadata_ui <- function(id) {
       tagAppendAttributes(class = "metadata"),
     textInput(ns("lead"), "Project lead") |>
       tagAppendAttributes(class = "metadata"),
-    textInput(ns("members"), "Project team members") |>
-      tagAppendAttributes(class = "metadata"),
+    textInput(ns("members"), "Project team members"),
   )
   
 }
