@@ -57,8 +57,6 @@ This report was produced using the [Scottish Government RAP Self Assessment tool
 
 **Report produced**: `r format(lubridate::today(), "%d %B %Y")`
 
-<div style=\"line-height:50%;\"><br></div>
-
 ## Progress summary
 
 ```{r, echo = FALSE, include = FALSE}
@@ -163,4 +161,12 @@ out <-
   )
 
 cat(unlist(out), sep = "\n")
+```
+
+<!-- Further support -->
+
+```{r, results = "asis", warning = FALSE}
+cat(knit_child("_further-support.qmd",
+               envir = environment(),
+               quiet = TRUE))
 ```
