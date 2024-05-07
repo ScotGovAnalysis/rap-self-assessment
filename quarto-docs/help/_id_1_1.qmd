@@ -1,6 +1,6 @@
 <!-- Code follows a style guide -->
 
-A Style Guides describes best practices for writing clean, consistent and maintainable code. For example:
+A style guide describes best practices for writing clean, consistent and maintainable code. For example:
 
 -   Naming conventions for variables, functions, files.
 -   Formatting rules to make your code easier to read.
