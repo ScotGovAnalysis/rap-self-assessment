@@ -1,0 +1,11 @@
+<!-- Code reviewed by somebody inside the immediate team -->
+
+Having your code reviewed by somebody else in your team can assure you that:
+
+-   your code works as expected
+-   your analysis is reproducible
+-   your documentation provides sufficient information for somebody else to know how to run your code
+
+The criteria in this [RAP self-assessment tool](https://scotland.shinyapps.io/sg-rap-self-assessment/) can be used as a check-list for code review.
+
+Code review can be a one-off exercise but ideally somebody else should review your code any time a change is made. If you are already using GitHub, this can be facilitated by using [Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests). 

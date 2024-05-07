@@ -1,7 +1,7 @@
-<!-- Manual steps minimised -->
+<!-- Code used for all data processing steps -->
 
-Manual steps are anything that involves pointing and clicking. This includes processes such as navigating to a website to download a data file, copying and pasting data, renaming or moving files or restructuring data in Excel.
+Data processing includes steps to extract data from its storage location, cleaning, restructuring and linking with other data sources.
 
-Many of these steps can be automated using code. By using code, steps can be repeated more accurately, the need for documentation is reduced as the process is already written down, and time is saved.
- 
-Some processes written in code can still require a lot of manual intervention, for example, updating the year in multiple places within an R script. In these cases, think about whether you can replace these multiple instances with a named variable that is defined once at the start of your code.
+Using code for these steps can help to document all changes that are made to a dataset and minimise the risk of human error when carrying out these steps manually.
+
+The R for Data Science book has guidance on using code for [importing data](https://r4ds.hadley.nz/data-import), [data transformation](https://r4ds.hadley.nz/data-transform) and [tidying](https://r4ds.hadley.nz/data-tidy), including recommendations of which R packages to use.

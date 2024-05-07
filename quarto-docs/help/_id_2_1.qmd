@@ -1,12 +1,5 @@
-<!-- Code follows a style guide -->
+<!--Functions used where appropriate-->
+Replacing repetitive blocks of code with functions can make your code easier to read and make it easier for you or others to maintain and update the code in future. This process is often known as code refactoring.
 
-A Style Guides describes best practices for writing clean, consistent and maintainable code. For example:
+Ensuring functions are used when appropriate is a foundation for developing a more advanced RAP. Functions might be reusable components which can be used across projects and eventually put into a package. Unit tests can be written for functions (see [Level 3 - Advanced RAP section](#unit-tests-for-functions)).
 
--   Naming conventions for variables, functions, files.
--   Formatting rules to make your code easier to read.
--   Standard ways document and comment code.
--   Best practices for writing efficient code, reducing errors.
-
-For R we recommend following the [tidyverse style guide](https://style.tidyverse.org/).
-
-Applying these conventions will make your code look more professional and will mean it is more easily understood by others.

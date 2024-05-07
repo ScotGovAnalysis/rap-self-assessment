@@ -1,14 +1,7 @@
-<!-- Code published publicly on GitHub -->
+<!-- Manual steps minimised -->
 
-Making your code open means it is available to anybody who would like to view it. Publishing your code can:
+Manual steps are anything that involves pointing and clicking. This includes processes such as navigating to a website to download a data file, copying and pasting data, renaming or moving files or restructuring data in Excel.
 
--   Increase trust in your analysis
--   Encourage collaboration
--   Improve quality
--   Help others benefit from your work.
-
-The [Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html#open-source-your-code) provides more examples of how publishing your code can bring personal benefits and benefits to the public.
-
-In the Scottish Government, analysts can publish their code on the [Scottish Government Analysis GitHub organisation](https://github.com/ScotGovAnalysis). GitHub is a web interface for hosting version controlled code. GitHub can also be used to facilitate code reviews, manage projects and track issues.
-
-Guidance for using GitHub on the SCOTS network is available on the [Statistics Group SharePoint site](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Version-Control.aspx).
+Many of these steps can be automated using code. By using code, steps can be repeated more accurately, the need for documentation is reduced as the process is already written down, and time is saved.
+ 
+Some processes written in code can still require a lot of manual intervention, for example, updating the year in multiple places within an R script. In these cases, think about whether you can replace these multiple instances with a named variable that is defined once at the start of your code.
