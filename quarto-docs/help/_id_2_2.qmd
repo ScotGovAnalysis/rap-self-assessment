@@ -1,13 +1,13 @@
-<!--Dependencies documented-->
+<!--Data quality assurance built into code-->
 
-To ensure reproducibility of your code it is important that package dependencies are documented in your RAP project code repository. Record names and (ideally) the version of each external R or Python package used.
+Code can be used to automate data quality assurance. Checking assumptions about data early in your analysis pipeline ensures that any issues can be spotted and dealt with quickly.
 
-This [Government Analysis Function article](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/dependency-and-reproducibility/) has some useful information.
+The simplest way to do this is to write some code that will generate an error or warning if something unexpected occurs. For example, if you expect at least 100 rows of data:
 
-Ways to achieve this for RAP projects primarily coded in R:
+```{r eval = FALSE, echo = TRUE}
+if(nrow(data) < 100) {
+  stop("There are fewer than 100 rows of data.")
+}
+```
 
--   Consider having one R script where all the packages used in the project are loaded. Document this in the README.
--   The output of `devtools::session_info()$packages` could be saved to a text file in your repository.
--   If developing an R package, the DESCRIPTION file provides a formal way to record package dependencies.
-
-Documenting your computational environment is a further step to ensure dependencies are documented. (See [Level 3 - Advanced RAP section](#computational-environment-documented)).
+For more sophisticated data quality assurance, try using either the [assertr](https://docs.ropensci.org/assertr/) or [validate](https://cran.r-project.org/web/packages/validate/vignettes/cookbook.html) packages.

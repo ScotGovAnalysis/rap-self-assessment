@@ -1,0 +1,9 @@
+<!--Code reviewed by somebody outside the immediate team-->
+It is beneficial for someone external to the team to review the RAP code:
+
+- It ensures reproducibility of the RAP as a standalone process, not relying on undocumented internal knowledge.
+- People more distant from the process can provide useful feedback and perspective.
+
+See Duck Book section on [peer review](https://best-practice-and-impact.github.io/qa-of-code-guidance/peer_review.html).
+
+It might not always be possible to get someone cleared to access the data required to run the process. If that is the case a reviewer knowledgeable on RAP best practices can still review the code to offer suggestions on structure and style.
