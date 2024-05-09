@@ -1,11 +1,12 @@
 /*-- scss:defaults --*/
 
-$callout-color-tip: #0065bd;	
+$sg-blue: #0065bd;
+
 
 /*-- scss:rules --*/
 
 #title-block-header {
-  color: #0065bd;
+  color: $sg-blue;
   border-bottom-style: solid;
 }
 
@@ -22,12 +23,12 @@ $callout-color-tip: #0065bd;
 }
 
 a {
-  color: #0065bd;
+  color: $sg-blue;
 }
 
 .sidebar nav[role=doc-toc] ul>li>a.active {
-    border-left: 1px solid #0065bd;
-    color: #0065bd !important;
+  border-left: 1px solid $sg-blue;
+  color: $sg-blue !important;
 }
 
 .btn {
@@ -35,19 +36,30 @@ a {
 }
 
 body {
-  font-family: Arial;
+  margin: 1rem !important;
 }
 
 body, input, .gt_table {
-   font-size: 18px !important;
+  font-family: Arial;
+  font-size: 18px !important;
 }
 
 .level2 {
   margin-top: 3rem !important;
 }
 
+.intro-h2 {
+  margin-top: 0 !important;
+}
+
 h3 {
   font-size: 1.2rem !important;
+}
+
+h3.intro-h3 {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
 }
 
 h4 {
@@ -62,10 +74,8 @@ h4 {
   padding-bottom: 1.5rem;
 }
 
-body {
-  margin: 1rem !important;
-}
 
+/* Hide label for form input to avoid visual repetition */
 .hide-label label {
   border: 0;
   clip: rect(0 0 0 0);
@@ -77,7 +87,9 @@ body {
   width: 1px;
 }
 
+
 /* Style the buttons that are used to open and close the accordion panel */
+
 details {
   margin: .25rem 0;
   width: 100%;
@@ -88,13 +100,13 @@ details>summary {
   color: #0064bd;
 }
 
+summary {
+  padding: .1rem;
+}
+
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .details_summary:hover {
   background-color: #d9effc;
-}
-
-summary {
-  padding: .1rem;
 }
 
 /* Style the details panel. Note: hidden by default */

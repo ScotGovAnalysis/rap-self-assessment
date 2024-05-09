@@ -16,11 +16,39 @@ embed-resources: true
 server: shiny
 ---
 
-This tool is a prototype for analysts in the Scottish Government to self-assess their progress in developing [Reproducible Analytical Pipelines](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/).
+## About this tool {.intro-h2}
 
-If you have any feedback on this tool, please [file an issue on GitHub](https://github.com/ScotGovAnalysis/rap-self-assessment/issues) or [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).
+This tool is for analysts in the Scottish Government developing [Reproducible Analytical Pipelines](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/). It aims to help analysts identify both areas of success and potential improvements.
 
-    
+There are four levels of RAP maturity:
+
+* Aspiring
+
+* Fundamental
+
+* Intermediate
+
+* Advanced
+
+### How to complete the self assessment {.intro-h3}
+
+Mark the criteria in each level as 'Complete', 'In progress' or 'Not started'. It isn't essential to provide a marking for all criteria. 
+
+Next, download a report to see what level of RAP maturity you are currently working at. You can also download a csv file containing your self assessment markings. Note that the tool doesn't store any data, so make sure to download a report or csv to save for future reference. 
+
+You can use your report to:
+
+* understand where you are already following RAP principles
+
+* understand what RAP principles you should focus on next
+
+It might be useful to complete this self assessment every few months to track progress and prioritise next steps.
+
+### Feedback {.intro-h3}
+
+This is a new tool and we would welcome any feedback you have. Please [file an issue on GitHub](https://github.com/ScotGovAnalysis/rap-self-assessment/issues) or [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).
+
+
 ```{r setup, include = FALSE}
 #| context: setup
 
@@ -59,14 +87,14 @@ opts_knit$set(root.dir = here())
 
 ## About your project
 
-```{r}
+```{r metadata}
 metadata_ui("metadata")
 ```
 
 
 <!-- Criteria assessments -->
 
-```{r, results = "asis", warning = FALSE}
+```{r form, results = "asis", warning = FALSE}
 out <- map(
    all_levels,
    function(level) {
@@ -82,7 +110,7 @@ cat(unlist(out), sep = "\n")
 
 ## Download report
 
-```{r sidebar-ui}
+```{r download}
 tagList(
    download_report_ui("report"),
    download_csv_ui("csv")
@@ -92,12 +120,14 @@ tagList(
 
 <!-- Further support -->
 
-```{r, results = "asis", warning = FALSE}
+```{r support, results = "asis", warning = FALSE}
 cat(knit_child(here("quarto-docs", "_further-support.qmd"),
                  envir = environment(),
                  quiet = TRUE))
 ```
 
+
+<!-- Shiny server -->
 
 ```{r server}
 #| context: server
@@ -129,4 +159,3 @@ callModule(download_csv_server, "csv", data_output)
 
 callModule(download_report_server, "report", data_output, metadata)
 ```
-
