@@ -12,6 +12,8 @@ format:
     toc-title: "Contents"
     anchor-sections: false
     smooth-scroll: true
+    header-includes: |
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 embed-resources: true
 server: shiny
 ---
