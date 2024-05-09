@@ -19,10 +19,13 @@ cat(out, sep = "\n")
 
 ```{r}
 if(level != max(all_levels)) {
-  a(
-    "Skip to download report",
-    href = "#download-report",
-    `data-scroll-target` = "#download-report"
+  tagList(
+    br(),
+    a(
+      "Skip to download report",
+      href = "#download-report",
+      `data-scroll-target` = "#download-report"
+    )
   )
 }
 ```

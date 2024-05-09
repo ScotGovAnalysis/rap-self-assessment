@@ -10,7 +10,7 @@ tagList(
   HTML("<div style=\"line-height:50%;\"><br></div>"),
   form_ui(id, 
           criteria |> filter(id == .env$id) |> pull(criteria), 
-          all_options),
-  hr()
+          all_options)#,
+  #hr()
 )
 ```
