@@ -73,7 +73,7 @@ max_level <- ifelse(
 
 level_met_text <- ifelse(
   is.na(max_level),
-  paste0("This project is working towards **", 
+  paste0("This project is **working towards ", 
          level_label(min(levels), levels), "**."),
   paste0("This project has achieved **", 
          level_label(max_level, levels), "**.")
