@@ -6,4 +6,3 @@ An example of a package developed in the Scottish Government and used by many te
 R and Python both have specific structures for packaging code. If you are new to creating packages in R then the [R Packages](https://r-pkgs.org/) online book is an excellent place to start. It is surprisingly easy to create an installable package in R!
 
 In Python you can build a package installable with `pip` and publish it on PyPI. [This tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/) in the Python Packaging User Guide is a good place to start.
-
