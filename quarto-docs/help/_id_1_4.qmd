@@ -1,7 +1,19 @@
-<!-- Manual steps minimised -->
+<!-- Using configurable parameters -->
 
-Manual steps are anything that involves pointing and clicking. This includes processes such as navigating to a website to download a data file, copying and pasting data, renaming or moving files or restructuring data in Excel.
+A data analysis process is more secure and reusable if certain values are stored separately from the analysis code. For example:
 
-Many of these steps can be automated using code. By using code, steps can be repeated more accurately, the need for documentation is reduced as the process is already written down, and time is saved.
- 
-Some processes written in code can still require a lot of manual intervention, for example, updating the year in multiple places within an R script. In these cases, think about whether you can replace these multiple instances with a named variable that is defined once at the start of your code.
+*	Directory paths for reading or writing files such as csv files or spreadsheets
+
+*	Database connection details
+
+*	A URL and API key required to access an external API to read data
+
+*	Parameter values to be set before running the code, for example a reference year
+
+Writing such values directly into code is known as hard-coding and it is best avoided where possible. It is better practice to manage these type of variables as [configurable parameters](https://best-practice-and-impact.github.io/qa-of-code-guidance/configuration.html).
+
+For sensitive variables such as API keys consider using the keyring package for R or Python to store these securely. An alternative is to create an environment variable.
+
+For less sensitive parameters a config file or script can be used to set values such as file paths or analytical variables used throughout a process. 
+
+More information is available in the [Configuration chapter of the Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/configuration.html). More detailed internal guidance will be made available soon.

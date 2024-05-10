@@ -8,7 +8,7 @@ criteria <- tibble::tribble(
   "1_1", "Code follows a style guide", 
   "1_2", "Code used for all data processing steps", 
   "1_3", "Outputs produced by code", 
-  "1_4", "Manual steps minimised", 
+  "1_4", "Using configurable parameters", 
   "1_5", "Using Git", 
   "1_6", "Code published publicly on GitHub", 
   "1_7", "Code reviewed by somebody inside the immediate team", 
