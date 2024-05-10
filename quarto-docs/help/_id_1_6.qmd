@@ -11,4 +11,10 @@ The [Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/p
 
 In the Scottish Government, analysts can publish their code on the [Scottish Government Analysis GitHub organisation](https://github.com/ScotGovAnalysis). GitHub is a web interface for hosting version controlled code. GitHub can also be used to facilitate code reviews, manage projects and track issues.
 
-Guidance for using GitHub on the SCOTS network is available on the [Statistics Group SharePoint site](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Version-Control.aspx).
+It is very important that sensitive information isn't published alongside code. This can be achieved by including a [gitignore file](https://github.com/ScotGovAnalysis/welcome/blob/main/.gitignore) in your repository that lists directories, file extensions and specific files that shouldn't be tracked by Git. 
+
+It is also important to ensure that your code doesn't contain any sensitive hard-coded information. [Using configurable parameters](#using-configurable-parameters) helps to avoid this.
+
+There may also be cases where the project as a whole is too sensitive to be published (e.g. if the project concerns a topic not suitable for the public domain). In these cases, this criteria can be marked as 'Complete'. Consider adding a note that explains why you made this decision for future reference.
+
+Guidance for using GitHub on the SCOTS network is available on the [Statistics Group SharePoint site](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Version-Control.aspx), including [user responsibilities](https://erdm.scotland.gov.uk/documents/A42743383/details).
