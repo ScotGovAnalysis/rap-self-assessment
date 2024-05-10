@@ -26,7 +26,14 @@ a {
   color: $sg-blue;
 }
 
+
 .sidebar nav[role=doc-toc] ul>li>a.active {
+  border-left: 1px solid $sg-blue;
+  color: $sg-blue !important;
+}
+
+
+.sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
   border-left: 1px solid $sg-blue;
   color: $sg-blue !important;
 }
