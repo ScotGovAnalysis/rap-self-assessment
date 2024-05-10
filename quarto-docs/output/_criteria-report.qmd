@@ -20,5 +20,5 @@ HTML("<div style=\"line-height:50%;\"><br></div>")
 `r if(note != "") paste("**Notes**:", note)`
 
 ```{r, echo = FALSE}
-htmltools::hr()
+br()
 ```
