@@ -7,7 +7,7 @@ download_csv_ui <- function(id) {
   
 }
 
-download_csv_server <- function(input, output, session, input_data) {
+download_csv_server <- function(input, output, session, input_data, all_levels) {
   
   # Downloadable csv of selected dataset ----
   output$button <- downloadHandler(
@@ -15,7 +15,9 @@ download_csv_server <- function(input, output, session, input_data) {
     content = function(file) {
       write.csv(
         input_data() |> 
-          select(level, criteria, status = status_label, note), 
+          select(level, criteria, status = status_label, note) |>
+          rowwise() |>
+          mutate(level = level_label(level, all_levels, rap = FALSE)), 
         file, 
         row.names = FALSE
       )

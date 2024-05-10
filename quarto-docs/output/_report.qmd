@@ -128,7 +128,7 @@ chart_data %>%
 ```{r, echo = FALSE}
 level_summary |>
   select(level, all_of(options), perc_met) |>
-  mutate(level = level_label(level, levels)) |>
+  mutate(level = level_label(level, levels, rap = FALSE)) |>
   gt() |>
   tab_spanner(
     label = "Number of criteria",
