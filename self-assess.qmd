@@ -18,39 +18,6 @@ embed-resources: true
 server: shiny
 ---
 
-## About this tool {.intro-h2}
-
-This tool is for analysts in the Scottish Government developing [Reproducible Analytical Pipelines](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/). It aims to help analysts identify both areas of success and potential improvements.
-
-There are four levels of RAP maturity:
-
-* Aspiring
-
-* Fundamental
-
-* Intermediate
-
-* Advanced
-
-### How to complete the self assessment {.intro-h3}
-
-Mark the criteria in each level as 'Complete', 'In progress' or 'Not started'. It isn't essential to provide a marking for all criteria. 
-
-Next, download a report to see what level of RAP maturity you are currently working at. You can also download a csv file containing your self assessment markings. Note that the tool doesn't store any data, so make sure to download a report or csv to save for future reference. 
-
-You can use your report to:
-
-* understand where you are already following RAP principles
-
-* understand what RAP principles you should focus on next
-
-It might be useful to complete this self assessment every few months to track progress and prioritise next steps.
-
-### Feedback {.intro-h3}
-
-This is a new tool and we would welcome any feedback you have. Please [file an issue on GitHub](https://github.com/ScotGovAnalysis/rap-self-assessment/issues) or [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).
-
-
 ```{r setup, include = FALSE}
 #| context: setup
 
@@ -87,6 +54,15 @@ opts_knit$set(root.dir = here())
 ```
 
 
+## About this tool {.intro-h2}
+
+```{r about, results = "asis", warning = FALSE}
+cat(knit_child(here("quarto-docs", "_about-this-tool.qmd"),
+                 envir = environment(),
+                 quiet = TRUE))
+```
+
+
 ## About your project
 
 ```{r metadata}
@@ -120,7 +96,7 @@ tagList(
 ```
 
 
-<!-- Further support -->
+## Further support
 
 ```{r support, results = "asis", warning = FALSE}
 cat(knit_child(here("quarto-docs", "_further-support.qmd"),

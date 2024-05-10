@@ -1,5 +1,3 @@
-## Further support
-
 There is a breadth of information available online for the criteria outlined in this tool. Links to relevant materials are provided in the 'What does this mean?' section for each criteria, but the following resources are particularly good:
 
 * [Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html)

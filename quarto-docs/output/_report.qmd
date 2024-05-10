@@ -147,6 +147,7 @@ level_summary |>
   )
 ```
 
+
 <!-- ## Assessment by Level  -->
 
 ```{r, echo = FALSE, results = "asis"}
@@ -163,10 +164,22 @@ out <-
 cat(unlist(out), sep = "\n")
 ```
 
-<!-- Further support -->
+
+## Further support
 
 ```{r, results = "asis", warning = FALSE}
 cat(knit_child("_further-support.qmd",
+               envir = environment(),
+               quiet = TRUE))
+```
+
+
+## About this tool
+
+This report was produced using the [Scottish Government RAP Self Assessment tool](https://scotland.shinyapps.io/sg-rap-self-assessment/).
+
+```{r, results = "asis", warning = FALSE}
+cat(knit_child("_about-this-tool.qmd",
                envir = environment(),
                quiet = TRUE))
 ```
