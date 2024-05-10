@@ -7,7 +7,7 @@ format:
     template-partials: partials/title-block.html
     logo: images/SG-logo.jpg
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     toc-location: left
     toc-title: "Contents"
     anchor-sections: false
@@ -54,7 +54,7 @@ opts_knit$set(root.dir = here())
 ```
 
 
-## About this tool {.intro-h2}
+## About this tool
 
 ```{r about, results = "asis", warning = FALSE}
 cat(knit_child(here("quarto-docs", "_about-this-tool.qmd"),
@@ -63,14 +63,15 @@ cat(knit_child(here("quarto-docs", "_about-this-tool.qmd"),
 ```
 
 
-## About your project
+## Self assessment
+
+
+### About your project
 
 ```{r metadata}
 metadata_ui("metadata")
 ```
 
-
-<!-- Criteria assessments -->
 
 ```{r form, results = "asis", warning = FALSE}
 out <- map(

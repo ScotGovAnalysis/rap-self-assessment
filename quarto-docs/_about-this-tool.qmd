@@ -10,7 +10,7 @@ There are four levels of RAP maturity:
 
 * Advanced
 
-### How to complete the self assessment {.intro-h3}
+### How to complete the self assessment {.unlisted}
 
 Mark the criteria in each level as 'Complete', 'In progress' or 'Not started'. It isn't essential to provide a marking for all criteria. 
 
@@ -24,6 +24,6 @@ You can use your report to:
 
 It might be useful to complete this self assessment every few months to track progress and prioritise next steps.
 
-### Feedback {.intro-h3}
+### Feedback {.unlisted}
 
 This is a new tool and we would welcome any feedback you have. Please [file an issue on GitHub](https://github.com/ScotGovAnalysis/rap-self-assessment/issues) or [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).

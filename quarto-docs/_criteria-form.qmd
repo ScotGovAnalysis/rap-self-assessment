@@ -1,4 +1,4 @@
-### `r criteria |> filter(id == .env$id) |> pull(criteria)`
+#### `r criteria |> filter(id == .env$id) |> pull(criteria)`
 
 ```{r, results = "asis"}
 details("What does this mean?",
@@ -10,7 +10,6 @@ tagList(
   HTML("<div style=\"line-height:50%;\"><br></div>"),
   form_ui(id, 
           criteria |> filter(id == .env$id) |> pull(criteria), 
-          all_options)#,
-  #hr()
+          all_options)
 )
 ```

@@ -7,7 +7,7 @@ format:
     template-partials: title-block.html
     logo: SG-logo.jpg
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     toc-location: left
     toc-title: "Contents"
     anchor-sections: false
@@ -47,18 +47,6 @@ options <- read_rds("options.rds")
 criteria_list <- input_data |> pull(criteria, name = id)
 ```
 
-This report was produced using the [Scottish Government RAP Self Assessment tool](https://scotland.shinyapps.io/sg-rap-self-assessment/).
-
-**Project name**: `r params$metadata$name`
-
-**Project lead**: `r params$metadata$lead`
-
-**Project team members**: `r params$metadata$members`
-
-**Report produced**: `r format(lubridate::today(), "%d %B %Y")`
-
-## Progress summary
-
 ```{r, echo = FALSE, include = FALSE}
 level_summary <-
   input_data |>
@@ -85,13 +73,28 @@ max_level <- ifelse(
 
 level_met_text <- ifelse(
   is.na(max_level),
-  paste("Working towards", 
-        level_label(min(levels), levels)),
-  level_label(max_level, levels)
+  paste0("This project is working towards **", 
+         level_label(min(levels), levels), "**."),
+  paste0("This project has achieved **", 
+         level_label(max_level, levels), "**.")
 )
 ```
 
-**RAP Level**: `r level_met_text`
+## About the project
+
+**Project name**: `r params$metadata$name`
+
+**Project lead**: `r params$metadata$lead`
+
+**Project team members**: `r params$metadata$members`
+
+**Report produced**: `r format(lubridate::today(), "%d %B %Y")`
+
+
+## Summary
+
+`r level_met_text`
+
 
 ```{r, echo = FALSE, dev = "svg", fig.align = "center", fig.width = mm_to_inch(220), fig.height = mm_to_inch(130), fig.alt = ""}
 chart_data <- 
@@ -148,7 +151,7 @@ level_summary |>
 ```
 
 
-<!-- ## Assessment by Level  -->
+## Self assessment
 
 ```{r, echo = FALSE, results = "asis"}
 out <- 
