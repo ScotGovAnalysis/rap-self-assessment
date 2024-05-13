@@ -64,12 +64,19 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   font-weight: 500 !important;
 }
 
+h4.criteria {
+  background-color: $sg-blue;
+  color: #ffffff;
+  padding: .5rem;
+  border-radius: 5px;
+}
+
 .form-group {
   width: auto !important;
 }
 
 .metadata{
-  padding-bottom: 1.5rem;
+  padding: 0 .25rem 1rem .25rem;
 }
 
 
