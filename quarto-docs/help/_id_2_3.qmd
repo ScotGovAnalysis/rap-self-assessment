@@ -1,5 +1,13 @@
-<!--Functions used where appropriate-->
-Replacing repetitive blocks of code with functions can make your code easier to read and make it easier for you or others to maintain and update the code in future. This process is often known as code refactoring.
+<!--Dependencies documented-->
 
-Ensuring functions are used when appropriate is a foundation for developing a more advanced RAP. Functions might be reusable components which can be used across projects and eventually put into a package. Unit tests can be written for functions (see [Level 3 - Advanced RAP section](#unit-tests-for-functions)).
+To ensure reproducibility of your code it is important that package dependencies are documented in your RAP project code repository. Record names and (ideally) the version of each external R or Python package used.
 
+This [Government Analysis Function article](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/dependency-and-reproducibility/) has some useful information.
+
+Ways to achieve this for RAP projects primarily coded in R:
+
+-   Consider having one R script where all the packages used in the project are loaded. Document this in the README.
+-   The output of `devtools::session_info()$packages` could be saved to a text file in your repository.
+-   If developing an R package, the DESCRIPTION file provides a formal way to record package dependencies.
+
+Documenting your computational environment is a further step to ensure dependencies are documented. (See [Level 3 - Advanced RAP section](#computational-environment-documented)).

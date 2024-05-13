@@ -1,9 +1,13 @@
-<!--Outputs produced by code-->
+<!--Data quality assurance built into code-->
 
-Open source programming languages such as R allow all components of a published output to be created with code. This includes all charts, tables and commentary. [R Markdown](https://rmarkdown.rstudio.com/docs/) or [Quarto](https://quarto.org/docs/computations/r.html) might be used for html reports or [Shiny](https://shiny.posit.co/) for dashboards.
+Code can be used to automate data quality assurance. Checking assumptions about data early in your analysis pipeline ensures that any issues can be spotted and dealt with quickly.
 
-Some benefits of this approach:
+The simplest way to do this is to write some code that will generate an error or warning if something unexpected occurs. For example, if you expect at least 100 rows of data:
 
--   It reduces error in copying and pasting items into a document.
--   It saves time regenerating the report for updated source data as the process has been automated.
--   It can ensure accessible, well formatted and professional looking outputs.
+```{r eval = FALSE, echo = TRUE}
+if(nrow(data) < 100) {
+  stop("There are fewer than 100 rows of data.")
+}
+```
+
+For more sophisticated data quality assurance, try using either the [assertr](https://docs.ropensci.org/assertr/) or [validate](https://cran.r-project.org/web/packages/validate/vignettes/cookbook.html) packages.

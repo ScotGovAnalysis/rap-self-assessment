@@ -1,11 +1,12 @@
 /*-- scss:defaults --*/
 
-$callout-color-tip: #0065bd;	
+$sg-blue: #0065bd;
+
 
 /*-- scss:rules --*/
 
 #title-block-header {
-  color: #0065bd;
+  color: $sg-blue;
   border-bottom-style: solid;
 }
 
@@ -22,46 +23,57 @@ $callout-color-tip: #0065bd;
 }
 
 a {
-  color: #0065bd;
+  color: $sg-blue;
 }
 
+
 .sidebar nav[role=doc-toc] ul>li>a.active {
-    border-left: 1px solid #0065bd;
-    color: #0065bd !important;
+  border-left: 1px solid $sg-blue;
+  color: $sg-blue !important;
+}
+
+
+.sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+  border-left: 1px solid $sg-blue;
+  color: $sg-blue !important;
 }
 
 .btn {
   font-size: 18px !important;
-}
-
-* {
-  font-family: Arial;
-}
-
-body, input, .gt_table {
-   font-size: 18px !important;
-}
-
-h3 {
-  font-size: 1.2rem !important;
-}
-
-h4 {
-  font-size: 1.1rem !important;
-}
-
-.form-group {
-  width: auto !important;
-}
-
-.form-sidebar{
-  padding-bottom: 1.5rem;
+  margin: .5rem;
 }
 
 body {
   margin: 1rem !important;
 }
 
+body, input, .gt_table {
+  font-family: "Roboto", Arial;
+  font-size: 18px !important;
+}
+
+h3 {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  margin-bottom: 1.2rem;
+  font-size: calc(1.2rem + 0.3vw);
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  font-weight: 500 !important;
+}
+
+.form-group {
+  width: auto !important;
+}
+
+.metadata{
+  padding-bottom: 1.5rem;
+}
+
+
+/* Hide label for form input to avoid visual repetition */
 .hide-label label {
   border: 0;
   clip: rect(0 0 0 0);
@@ -73,7 +85,9 @@ body {
   width: 1px;
 }
 
+
 /* Style the buttons that are used to open and close the accordion panel */
+
 details {
   margin: .25rem 0;
   width: 100%;
@@ -84,13 +98,13 @@ details>summary {
   color: #0064bd;
 }
 
+summary {
+  padding: .1rem;
+}
+
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .details_summary:hover {
   background-color: #d9effc;
-}
-
-summary {
-  padding: .1rem;
 }
 
 /* Style the details panel. Note: hidden by default */

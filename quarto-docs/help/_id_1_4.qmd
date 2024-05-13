@@ -1,14 +1,19 @@
-<!-- Code published publicly on GitHub -->
+<!-- Using configurable parameters -->
 
-Making your code open means it is available to anybody who would like to view it. Publishing your code can:
+A data analysis process is more secure and reusable if certain values are stored separately from the analysis code. For example:
 
--   Increase trust in your analysis
--   Encourage collaboration
--   Improve quality
--   Help others benefit from your work.
+*	Directory paths for reading or writing files such as csv files or spreadsheets
 
-The [Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html#open-source-your-code) provides more examples of how publishing your code can bring personal benefits and benefits to the public.
+*	Database connection details
 
-In the Scottish Government, analysts can publish their code on the [Scottish Government Analysis GitHub organisation](https://github.com/ScotGovAnalysis). GitHub is a web interface for hosting version controlled code. GitHub can also be used to facilitate code reviews, manage projects and track issues.
+*	A URL and API key required to access an external API to read data
 
-Guidance for using GitHub on the SCOTS network is available on the [Statistics Group SharePoint site](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Version-Control.aspx).
+*	Parameter values to be set before running the code, for example a reference year
+
+Writing such values directly into code is known as hard-coding and it is best avoided where possible. It is better practice to manage these type of variables as [configurable parameters](https://best-practice-and-impact.github.io/qa-of-code-guidance/configuration.html).
+
+For sensitive variables such as API keys consider using the keyring package for R or Python to store these securely. An alternative is to create an environment variable.
+
+For less sensitive parameters a config file or script can be used to set values such as file paths or analytical variables used throughout a process. 
+
+More information is available in the [Configuration chapter of the Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/configuration.html). More detailed internal guidance will be made available soon.

@@ -4,7 +4,7 @@ status <- input_data |> filter(id == x) |> pull(status_label)
 note <- input_data |> filter(id == x) |> pull(note)
 ```
 
-### `r criteria_list[x]`
+#### `r criteria_list[x]`
 
 ```{r, results = "asis"}
 details("What does this mean?",
@@ -20,5 +20,5 @@ HTML("<div style=\"line-height:50%;\"><br></div>")
 `r if(note != "") paste("**Notes**:", note)`
 
 ```{r, echo = FALSE}
-htmltools::hr()
+br()
 ```

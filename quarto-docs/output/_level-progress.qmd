@@ -1,4 +1,4 @@
-## `r level_label(x, levels)`
+### `r level_label(x, levels)`
 
 ```{r, results = "asis"}
 ids <- unique(input_data |> filter(level == x) |> pull(id))

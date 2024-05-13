@@ -1,13 +1,9 @@
-<!--Dependencies documented-->
+<!--Code reviewed by somebody outside the immediate team-->
+It is beneficial for someone external to the team to review the RAP code:
 
-To ensure reproducibility of your code it is important that package dependencies are documented in your RAP project code repository. Record names and (ideally) the version of each external R or Python package used.
+- It ensures reproducibility of the RAP as a standalone process, not relying on undocumented internal knowledge.
+- People more distant from the process can provide useful feedback and perspective.
 
-This [Government Analysis Function article](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/dependency-and-reproducibility/) has some useful information.
+See Duck Book section on [peer review](https://best-practice-and-impact.github.io/qa-of-code-guidance/peer_review.html).
 
-Ways to achieve this for RAP projects primarily coded in R:
-
--   Consider having one R script where all the packages used in the project are loaded. Document this in the README.
--   The output of `devtools::session_info()$packages` could be saved to a text file in your repository.
--   If developing an R package, the DESCRIPTION file provides a formal way to record package dependencies.
-
-Documenting your computational environment is a further step to ensure dependencies are documented. (See [Level 3 - Advanced RAP section](#computational-environment-documented)).
+It might not always be possible to get someone cleared to access the data required to run the process. If that is the case a reviewer knowledgeable on RAP best practices can still review the code to offer suggestions on structure and style.

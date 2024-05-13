@@ -7,7 +7,7 @@ format:
     template-partials: title-block.html
     logo: SG-logo.jpg
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     toc-location: left
     toc-title: "Contents"
     anchor-sections: false
@@ -47,8 +47,6 @@ options <- read_rds("options.rds")
 criteria_list <- input_data |> pull(criteria, name = id)
 ```
 
-This report was produced using the [Scottish Government RAP Self Assessment tool](https://scotland.shinyapps.io/sg-rap-self-assessment/).
-
 ```{r, echo = FALSE, include = FALSE}
 level_summary <-
   input_data |>
@@ -75,23 +73,28 @@ max_level <- ifelse(
 
 level_met_text <- ifelse(
   is.na(max_level),
-  paste("Working towards", 
-        level_label(min(levels), levels)),
-  level_label(max_level, levels)
+  paste0("This project is **working towards ", 
+         level_label(min(levels), levels), "**."),
+  paste0("This project has achieved **", 
+         level_label(max_level, levels), "**.")
 )
 ```
 
-## Summary & Progress
+## About the project
 
-**Publication title**: `r params$metadata$pub_name`
+**Project name**: `r params$metadata$name`
 
-**Team leader**: `r params$metadata$team_lead`
+**Project lead**: `r params$metadata$lead`
 
-**Team members**: `r params$metadata$team_members`
+**Project team members**: `r params$metadata$members`
 
 **Report produced**: `r format(lubridate::today(), "%d %B %Y")`
 
-**RAP Level**: `r level_met_text`
+
+## Summary
+
+`r level_met_text`
+
 
 ```{r, echo = FALSE, dev = "svg", fig.align = "center", fig.width = mm_to_inch(220), fig.height = mm_to_inch(130), fig.alt = ""}
 chart_data <- 
@@ -123,12 +126,12 @@ chart_data %>%
   labs(x = "Percentage of criteria", y = NULL, fill = NULL)
 ```
 
-<br>
+<div style=\"line-height:50%;\"><br></div>
 
 ```{r, echo = FALSE}
 level_summary |>
   select(level, all_of(options), perc_met) |>
-  mutate(level = level_label(level, levels)) |>
+  mutate(level = level_label(level, levels, rap = FALSE)) |>
   gt() |>
   tab_spanner(
     label = "Number of criteria",
@@ -147,7 +150,8 @@ level_summary |>
   )
 ```
 
-<!-- ## Assessment by Level  -->
+
+## Self assessment
 
 ```{r, echo = FALSE, results = "asis"}
 out <- 
@@ -161,4 +165,24 @@ out <-
   )
 
 cat(unlist(out), sep = "\n")
+```
+
+
+## Further support
+
+```{r, results = "asis", warning = FALSE}
+cat(knit_child("_further-support.qmd",
+               envir = environment(),
+               quiet = TRUE))
+```
+
+
+## About this tool
+
+This report was produced using the [Scottish Government RAP Self Assessment tool](https://scotland.shinyapps.io/sg-rap-self-assessment/).
+
+```{r, results = "asis", warning = FALSE}
+cat(knit_child("_about-this-tool.qmd",
+               envir = environment(),
+               quiet = TRUE))
 ```

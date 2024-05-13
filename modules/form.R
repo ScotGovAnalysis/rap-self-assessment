@@ -29,7 +29,9 @@ form_ui <- function(id, criteria, options) {
       value = "",
       placeholder = "Add notes here",
       resize = "vertical"
-    )
+    ),
+    
+    HTML("<div style=\"line-height:50%;\"><br></div>")
 
   )  
 }

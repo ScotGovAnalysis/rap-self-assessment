@@ -1,0 +1,5 @@
+<!--Fully automated end-to-end pipeline-->
+
+The ultimate aim is for all steps in an analytical pipeline to be executed from a single script. This negates the need to open individual code scripts and run them one-by-one in a certain order.
+
+The [targets](https://docs.ropensci.org/targets/) package is a useful tool when automating pipelines. It keeps track of which sections of the pipeline are already up to date and skips these automatically, saving time and effort. The targets user manual has a useful [walkthrough example](https://books.ropensci.org/targets/walkthrough.html) to get started.

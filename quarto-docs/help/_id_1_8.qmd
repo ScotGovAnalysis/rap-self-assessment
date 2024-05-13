@@ -1,0 +1,11 @@
+<!-- More detailed documentation -->
+
+There are various more detailed ways to document your code and your project. 
+
+It is often useful to write some [user desk instructions](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html#user-desk-instructions) to help others understand how to run your code and what to do with any outputs.
+
+If the code is likely to be developed by a multiple people, it might be useful to lay out some [guidance for contributing](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html#contributing-guidance). This could include details of the Git workflow that should be followed and any standards that the code should meet (for example, a style guide).
+
+If you are using functions, you may want to consider using [docstrings](https://best-practice-and-impact.github.io/qa-of-code-guidance/code_documentation.html#docstrings) to document what the function does and what arguments it expects. 
+
+The Duck Book contains more guidance for both [code documentation](https://best-practice-and-impact.github.io/qa-of-code-guidance/code_documentation.html) and [project documentation](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html).

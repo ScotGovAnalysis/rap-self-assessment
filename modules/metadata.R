@@ -4,12 +4,11 @@ metadata_ui <- function(id) {
   ns <- NS(id)
   
   tagList(
-    textInput(ns("pub_name"), "Publication Name") |>
-      tagAppendAttributes(class = "form-sidebar"),
-    textInput(ns("team_lead"), "Team leader") |>
-      tagAppendAttributes(class = "form-sidebar"),
-    textInput(ns("team_members"), "Team members") |>
-      tagAppendAttributes(class = "form-sidebar")
+    textInput(ns("name"), "Project name") |>
+      tagAppendAttributes(class = "metadata"),
+    textInput(ns("lead"), "Project lead") |>
+      tagAppendAttributes(class = "metadata"),
+    textInput(ns("members"), "Project team members"),
   )
   
 }
@@ -17,8 +16,8 @@ metadata_ui <- function(id) {
 metadata_server <- function(input, output, session) {
   
   # Return a reactive list of metadata
-  return(reactive(list(pub_name = input$pub_name, 
-                       team_lead = input$team_lead,
-                       team_members = input$team_members)))
+  return(reactive(list(name = input$name, 
+                       lead = input$lead,
+                       members = input$members)))
   
 }

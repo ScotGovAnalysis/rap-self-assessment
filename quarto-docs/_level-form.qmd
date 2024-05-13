@@ -1,4 +1,4 @@
-## `r level_label(level, all_levels)`
+### `r level_label(level, all_levels)`
 
 ```{r, results = "asis"}
 level_ids <- criteria |> filter(level == .env$level) |> pull(id)
@@ -19,10 +19,13 @@ cat(out, sep = "\n")
 
 ```{r}
 if(level != max(all_levels)) {
-  a(
-    "Skip to download report",
-    href = "#download-report",
-    `data-scroll-target` = "#download-report"
+  tagList(
+    br(),
+    a(
+      "Skip to download report",
+      href = "#download-report"#,
+      #`data-scroll-target` = "#download-report"
+    )
   )
 }
 ```
