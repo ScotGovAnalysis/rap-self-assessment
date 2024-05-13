@@ -4,7 +4,7 @@ status <- input_data |> filter(id == x) |> pull(status_label)
 note <- input_data |> filter(id == x) |> pull(note)
 ```
 
-#### `r criteria_list[x]`
+#### `r criteria_list[x]` {.criteria}
 
 ```{r, results = "asis"}
 details("What does this mean?",

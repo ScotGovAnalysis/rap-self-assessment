@@ -1,4 +1,4 @@
-#### `r criteria |> filter(id == .env$id) |> pull(criteria)`
+#### `r criteria |> filter(id == .env$id) |> pull(criteria)` {.criteria}
 
 ```{r, results = "asis"}
 details("What does this mean?",
