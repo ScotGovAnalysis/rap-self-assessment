@@ -26,4 +26,4 @@ It might be useful to complete this self assessment every few months to track pr
 
 ### Feedback {.unlisted}
 
-This is a new tool and we would welcome any feedback you have. Please [file an issue on GitHub](https://github.com/ScotGovAnalysis/rap-self-assessment/issues) or [get in touch via email](mailto:alice.byers@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).
+This is a new tool and we would welcome any feedback you have. Please [file an issue on GitHub](https://github.com/ScotGovAnalysis/rap-self-assessment/issues) or [get in touch via email](mailto:alice.hannah@gov.scot;thomas.wilson@gov.scot?subject=RAP%20Self-Assessment%20Feedback).

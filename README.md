@@ -63,7 +63,7 @@ If you have any feedback or suggestions, please [open an issue](https://github.c
 
 ## Contact
 
-This repository is maintained by [Alice Byers](mailto:alice.byers@gov.scot).
+This repository is maintained by [Alice Hannah](mailto:alice.hannah@gov.scot).
 
 
 ## Licence
