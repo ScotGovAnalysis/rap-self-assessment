@@ -13,3 +13,5 @@ The following guidance is available to help you with this:
 - [Keep your project structure clean - Duck Book](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_structure.html#keep-your-project-structure-clean)
 
 - [Naming files - Tidyverse style guide](https://style.tidyverse.org/files.html#names)
+
+ <!-- need to include this space for list to be knitted properly -->
