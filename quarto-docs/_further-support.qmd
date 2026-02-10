@@ -6,6 +6,4 @@ There is a breadth of information available online for the criteria outlined in 
 
 * [Scottish Government list of RAP resources](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Reproducible-Analytical-Pipelines-Resources.aspx)
 
-The Data Innovation team can provide [support to analytical teams in the Scottish Government who want to develop a RAP](https://scotsconnect.sharepoint.com/sites/StatisticsGroup-Org-SG/SitePages/Support-for-Reproducible-Analytical-Pipelines.aspx).
-
-In addition, there are Scottish Government Viva Engage communities for both [RAP](https://engage.cloud.microsoft/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxOTI2NDMyMzU4NSJ9) and [R](https://engage.cloud.microsoft/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI2MzQ4MzE2NjczIn0) where you can ask questions and share knowledge.
+There are also Scottish Government Viva Engage communities for both [RAP](https://engage.cloud.microsoft/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxOTI2NDMyMzU4NSJ9) and [R](https://engage.cloud.microsoft/main/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI2MzQ4MzE2NjczIn0) where you can ask questions and share knowledge.
